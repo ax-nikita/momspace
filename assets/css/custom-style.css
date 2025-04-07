@@ -1,0 +1,127 @@
+.container-baby-name table {
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: 20px 0; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s; 
+}
+
+.container-baby-name table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.container-baby-name td {
+    padding: 10px; /* Внутренние отступы ячеек */
+    border-bottom: 1px solid #ddd; 
+}
+
+.container-baby-name tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+/* Уникальные стили для каждого происхождения */
+.origin-american { background-color: #ffcccb; }
+.origin-azerbaijani { background-color: #e6e6fa; }
+.origin-english { background-color: #add8e6; }
+.origin-arabic { background-color: #ffe4e1; }
+.origin-armenians { background-color: #f0e68c; }
+.origin-bashkir { background-color: #d3d3d3; }
+.origin-belarusian { background-color: #ffb6c1; }
+.origin-bulgarian { background-color: #ffebcd; }
+.origin-brazilian { background-color: #ffdead; }
+.origin-hungarian { background-color: #f5f5dc; }
+.origin-german { background-color: #dcdcdc; }
+.origin-greek { background-color: #f0f8ff; }
+.origin-georgian { background-color: #ffe4b5; }
+.origin-dagestani { background-color: #f5f5f5; }
+.origin-jewish { background-color: #faebd7; }
+.origin-indian { background-color: #ffe4e1; }
+.origin-irish { background-color: #f0fff0; }
+.origin-italian { background-color: #ffdab9; }
+.origin-kazakh { background-color: #e6e6fa; }
+.origin-kyrgyz { background-color: #f0e68c; }
+.origin-chinese { background-color: #ffcccb; }
+.origin-korean { background-color: #add8e6; }
+.origin-latin { background-color: #e6e6fa; }
+.origin-latvian { background-color: #f5f5dc; }
+.origin-lithuanian { background-color: #dcdcdc; }
+.origin-mongolian { background-color: #ffebcd; }
+.origin-norwegian { background-color: #ffdead; }
+.origin-persian { background-color: #f0f8ff; }
+.origin-polish { background-color: #ffe4b5; }
+.origin-portuguese { background-color: #f5f5f5; }
+.origin-romanian { background-color: #faebd7; }
+.origin-russian { background-color: #ffe4e1; }
+.origin-serbian { background-color: #f0fff0; }
+.origin-scan { background-color: #ffdab9; }
+.origin-slovak { background-color: #e6e6fa; }
+.origin-tajik { background-color: #f0e68c; }
+.origin-tatar { background-color: #d3d3d3; }
+.origin-turkish { background-color: #ffb6c1; }
+.origin-turkmen { background-color: #ffebcd; }
+.origin-uzbek { background-color: #ffdead; }
+.origin-ukrainian { background-color: #f5f5dc; }
+.origin-finnish { background-color: #dcdcdc; }
+.origin-french { background-color: #f0f8ff; }
+.origin-chechen { background-color: #ffe4b5; }
+.origin-czech { background-color: #f5f5f5; }
+.origin-swedish { background-color: #faebd7; }
+.origin-scottish { background-color: #ffe4e1; }
+.origin-japanese { background-color: #f0fff0; }
+
+.gender-male::before {
+    content: "👦 "; 
+}
+
+.gender-female::before {
+    content: "👧 "; 
+}
+
+.gender-unisex::before {
+    content: "👶 ";
+}
+
+.name-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.name-card a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.name-card:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Стили для контейнера поиска */
+.container.name-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для формы поиска */
+#name-search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#name-search-form button.btn {
+    background-color: #580ba0 !important;
+    color:#fff;
+    display: block;
+    width: 100%;
+}
