@@ -4,13 +4,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evior
+ * @package momspace
  */
 
 get_header();
 
-$evior_cat_style = get_term_meta( get_queried_object_id(), 'evior', true );
-$evior_cat_style_template = !empty( $evior_cat_style['evior_cat_layout'] )? $evior_cat_style['evior_cat_layout'] : '';
+$momspace_cat_style = get_term_meta( get_queried_object_id(), 'momspace', true );
+$momspace_cat_style_template = !empty( $momspace_cat_style['momspace_cat_layout'] )? $momspace_cat_style['momspace_cat_layout'] : '';
 	
 ?>
 
@@ -38,15 +38,15 @@ $evior_cat_style_template = !empty( $evior_cat_style['evior_cat_layout'] )? $evi
 					
 					<?php 
 				
-						$evior_cat_global = evior_get_option( 'evior_cat_layout' ); //for global	  
+						$momspace_cat_global = momspace_get_option( 'momspace_cat_layout' ); //for global	  
 						
-						if( is_category() && !empty( $evior_cat_style  ) ) {
+						if( is_category() && !empty( $momspace_cat_style  ) ) {
 						 
-						get_template_part( 'template-parts/category-templates/'.$evior_cat_style_template.'' ); 
+						get_template_part( 'template-parts/category-templates/'.$momspace_cat_style_template.'' ); 
 						
-						} elseif ( class_exists( 'CSF' ) && !empty( $evior_cat_global ) ) {
+						} elseif ( class_exists( 'CSF' ) && !empty( $momspace_cat_global ) ) {
 							
-							get_template_part( 'template-parts/category-templates/'.$evior_cat_global.'' );
+							get_template_part( 'template-parts/category-templates/'.$momspace_cat_global.'' );
 							
 						} else {
 							

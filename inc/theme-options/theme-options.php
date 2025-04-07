@@ -1,7 +1,7 @@
 <?php
 /*
  * Theme Options
- * @package Evior
+ * @package momspace
  * @since 1.0.0
  * */
 
@@ -13,84 +13,84 @@ if( class_exists( 'CSF' ) ) {
 
   //
   // Set a unique slug-like ID
-  $prefix = 'evior';
+  $prefix = 'momspace';
 
   //
   // Create options
   CSF::createOptions( $prefix.'_theme_options', array(
-    'menu_title' => esc_html__('Theme Option','evior'),
-    'menu_slug'  => 'evior-theme-option',
+    'menu_title' => esc_html__('Theme Option','momspace'),
+    'menu_slug'  => 'momspace-theme-option',
     'menu_type' => 'menu',
     'enqueue_webfont'         => true,
     'show_footer' => false,
-    'framework_title'      => esc_html__('Evior Theme Options','evior'),
+    'framework_title'      => esc_html__('momspace Theme Options','momspace'),
   ) );
 
   //
   // Create a section
   CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('General','evior'),
+    'title'  => esc_html__('General','momspace'),
     'icon'  => 'fa fa-wrench',
     'fields' => array(
 
 		array(
 			'type' => 'subheading',
-			'content' => '<h3>' . esc_html__('Site Logo', 'evior') . '</h3>',
+			'content' => '<h3>' . esc_html__('Site Logo', 'momspace') . '</h3>',
 		) ,
 			
 		array(
 			'id' => 'theme_logo',
-			'title' => esc_html__('Main Logo','evior'),
+			'title' => esc_html__('Main Logo','momspace'),
 			'type' => 'media',
 			'library' => 'image',
-			'desc' => esc_html__('Upload Your Static Logo Image on Header Static', 'evior')
+			'desc' => esc_html__('Upload Your Static Logo Image on Header Static', 'momspace')
 		), 
 		
 		
 		array(
 			'id' => 'logo_width',
 			'type' => 'slider',
-			'title' => esc_html__('Set Logo Width','evior'),
+			'title' => esc_html__('Set Logo Width','momspace'),
 			'min' => 0,
 			'max' => 300,
 			'step' => 1,
 			'unit' => 'px',
 			'default' => 102,
-			'desc' => esc_html__('Set Logo Width in px. Default Width 184px.', 'evior') ,
+			'desc' => esc_html__('Set Logo Width in px. Default Width 184px.', 'momspace') ,
 		) ,
 		
 	  
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Preloader','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Preloader','momspace').'</h3>'
       ),
 	  
 	  
       array(
         'id' => 'preloader_enable',
-        'title' => esc_html__('Enable Preloader','evior'),
+        'title' => esc_html__('Enable Preloader','momspace'),
         'type' => 'switcher',
-        'desc' => esc_html__('Enable or Disable Preloader', 'evior') ,
+        'desc' => esc_html__('Enable or Disable Preloader', 'momspace') ,
         'default' => true,
       ),
 	  
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Back Top Options','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Back Top Options','momspace').'</h3>'
       ),
 	  
 	  
       array(
         'id' => 'back_top_enable',
-        'title' => esc_html__('Scroll Top Button','evior'),
+        'title' => esc_html__('Scroll Top Button','momspace'),
         'type' => 'switcher',
-        'desc' => esc_html__('Enable or Disable scroll button', 'evior') ,
+        'desc' => esc_html__('Enable or Disable scroll button', 'momspace') ,
         'default' => true,
       ),
 	  
 	array(
 		'type' => 'subheading',
-		'content' =>'<h3>'.esc_html__('Theme Layout Options','evior').'</h3>'
+		'content' =>'<h3>'.esc_html__('Theme Layout Options','momspace').'</h3>'
 	),
 
 
@@ -114,24 +114,24 @@ if( class_exists( 'CSF' ) ) {
    --------------------------------------------------------*/
   
     CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Header','evior'),
+    'title'  => esc_html__('Header','momspace'),
     'id' => 'header_options',
     'icon' => 'fa fa-header',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Header Layout','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Header Layout','momspace').'</h3>'
       ),
         //
         // nav select
        array(
             'id' => 'nav_menu',
             'type' => 'image_select',
-            'title' => esc_html__('Select Header Navigation Style','evior'),
+            'title' => esc_html__('Select Header Navigation Style','momspace'),
             'options' => array(
-                'nav-style-one' => EVIOR_IMG . '/admin/header-style/style1.png',
-                'nav-style-two' => EVIOR_IMG . '/admin/header-style/style2.png',
-				'nav-style-three' => EVIOR_IMG . '/admin/header-style/style2.png',
+                'nav-style-one' => momspace_IMG . '/admin/header-style/style1.png',
+                'nav-style-two' => momspace_IMG . '/admin/header-style/style2.png',
+				'nav-style-three' => momspace_IMG . '/admin/header-style/style2.png',
             ),
 			
             'default' => 'nav-style-three'
@@ -140,33 +140,33 @@ if( class_exists( 'CSF' ) ) {
 	
      array(
             'id' => 'theme_header_sticky',
-            'title' => esc_html__('Sticky Header', 'evior') ,
+            'title' => esc_html__('Sticky Header', 'momspace') ,
             'type' => 'switcher',
-            'desc' => esc_html__('Enable Sticky Header', 'evior') ,
+            'desc' => esc_html__('Enable Sticky Header', 'momspace') ,
             'default' => true,
     ) ,
 
  
 	array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Header Top Bar','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Header Top Bar','momspace').'</h3>'
       ),
 
 
    array(
         'id' => 'header_bg_enable',
-        'title' => esc_html__('Enable Header Top Background','evior'),
+        'title' => esc_html__('Enable Header Top Background','momspace'),
         'type' => 'switcher',
-        'desc' => esc_html__('Enable or Disable Top bar background', 'evior') ,
+        'desc' => esc_html__('Enable or Disable Top bar background', 'momspace') ,
         'default' => false,
     ),
 
 
     array(
         'id' => 'topbar_bg_img',
-        'title' => esc_html__('Set Top bar Background Image', 'evior'),
+        'title' => esc_html__('Set Top bar Background Image', 'momspace'),
         'type' => 'background',
-        'desc' => esc_html__('Set Hedaer top bar background image.', 'evior') ,
+        'desc' => esc_html__('Set Hedaer top bar background image.', 'momspace') ,
         'default' => array(
             'background-size' => 'cover',
             'background-position' => 'center center',
@@ -178,10 +178,10 @@ if( class_exists( 'CSF' ) ) {
     
     array(
         'id' => 'topbar_bg_color',
-        'title' => esc_html__('Set Background Color', 'evior'),
+        'title' => esc_html__('Set Background Color', 'momspace'),
         'type' => 'color',
         'default' => 'rgba(255,53,36,1)',
-        'desc' => esc_html__('Set color for Top bar background.', 'evior') ,
+        'desc' => esc_html__('Set color for Top bar background.', 'momspace') ,
         'dependency' => array('header_bg_enable', '==', 'true')
     ),
 
@@ -189,68 +189,68 @@ if( class_exists( 'CSF' ) ) {
 	  
 	array(
         'id' => 'header_top_promo',
-        'title' => esc_html__('Show Header Top Promotion Text','evior'),
+        'title' => esc_html__('Show Header Top Promotion Text','momspace'),
         'type' => 'switcher',
         'default' => true,
-		'desc' => esc_html__('Enable Header Promotion', 'evior') ,
+		'desc' => esc_html__('Enable Header Promotion', 'momspace') ,
     ),
 
 	array(
 		'id'         => 'promo_title',
 		'type'       => 'text',
-		'title'      => esc_html__('Promo Highlighted Title','evior'),
-		'default'    => esc_html__('New','evior'),
-		'desc'       => esc_html__('Type Title','evior'),
+		'title'      => esc_html__('Promo Highlighted Title','momspace'),
+		'default'    => esc_html__('New','momspace'),
+		'desc'       => esc_html__('Type Title','momspace'),
 		'dependency' => array( 'header_top_promo', '==', 'true' ),
 	),
 	
 	array(
 		'id'         => 'promo_text',
 		'type'       => 'text',
-		'title'      => esc_html__('Promo Text','evior'),
-		'default'    => esc_html__('Incredible offer for our exclusive subscribers!','evior'),
-		'desc'       => esc_html__('Type Promotion offer text','evior'),
+		'title'      => esc_html__('Promo Text','momspace'),
+		'default'    => esc_html__('Incredible offer for our exclusive subscribers!','momspace'),
+		'desc'       => esc_html__('Type Promotion offer text','momspace'),
 		'dependency' => array( 'header_top_promo', '==', 'true' ),
 	),
 	
 	array(
 		'id'         => 'promo_text_btn',
 		'type'       => 'text',
-		'title'      => esc_html__('Promo Button Text','evior'),
-		'default'    => esc_html__('Read More','evior'),
-		'desc'       => esc_html__('Type Promotion Button text','evior'),
+		'title'      => esc_html__('Promo Button Text','momspace'),
+		'default'    => esc_html__('Read More','momspace'),
+		'desc'       => esc_html__('Type Promotion Button text','momspace'),
 		'dependency' => array( 'header_top_promo', '==', 'true' ),
 	),
 	
 	array(
 		'id'         => 'promo_btn_link',
 		'type'       => 'text',
-		'title'      => esc_html__('Promo Button Link','evior'),
-		'default'    => esc_html__('#','evior'),
-		'desc'       => esc_html__('Type Promotion Button Link','evior'),
+		'title'      => esc_html__('Promo Button Link','momspace'),
+		'default'    => esc_html__('#','momspace'),
+		'desc'       => esc_html__('Type Promotion Button Link','momspace'),
 		'dependency' => array( 'header_top_promo', '==', 'true' ),
 	),
 	  
 	  
 	array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Header Top Bar','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Header Top Bar','momspace').'</h3>'
       ),
 	  
       array(
         'id' => 'header_top_enable',
-        'title' => esc_html__('Show Header Top','evior'),
+        'title' => esc_html__('Show Header Top','momspace'),
         'type' => 'switcher',
         'default' => true,
-		'desc' => esc_html__('Enable Header Top', 'evior') ,
+		'desc' => esc_html__('Enable Header Top', 'momspace') ,
       ),
 
 		
 		array(
 			'id' => 'header_top_weather',
-			'title' => esc_html__('Show weather box', 'evior') ,
+			'title' => esc_html__('Show weather box', 'momspace') ,
 			'type' => 'switcher',
-			'desc' => esc_html__('Enable Header weather box', 'evior') ,
+			'desc' => esc_html__('Enable Header weather box', 'momspace') ,
 			'dependency' => array(
 				'header_top_enable',
 				'==',
@@ -262,18 +262,18 @@ if( class_exists( 'CSF' ) ) {
 		array(
 		'id'         => 'waether_text',
 		'type'       => 'text',
-		'title'      => esc_html__('Header Weather Text','evior'),
-		'default'    => esc_html__('38°C','evior'),
-		'desc'       => esc_html__('Type Header Weather Text','evior'),
+		'title'      => esc_html__('Header Weather Text','momspace'),
+		'default'    => esc_html__('38°C','momspace'),
+		'desc'       => esc_html__('Type Header Weather Text','momspace'),
 		'dependency' => array( 'header_top_enable', '==', 'true' ),
 	),
 		
 		
 		array(
 			'id' => 'header_top_calender',
-			'title' => esc_html__('Show Current Date', 'evior') ,
+			'title' => esc_html__('Show Current Date', 'momspace') ,
 			'type' => 'switcher',
-			'desc' => esc_html__('Enable Header Current Date', 'evior') ,
+			'desc' => esc_html__('Enable Header Current Date', 'momspace') ,
 			'dependency' => array(
 				'header_top_enable',
 				'==',
@@ -284,9 +284,9 @@ if( class_exists( 'CSF' ) ) {
 		
 		array(
 			'id' => 'top_text_btn_enable',
-			'title' => esc_html__('Show Header Top Button', 'evior') ,
+			'title' => esc_html__('Show Header Top Button', 'momspace') ,
 			'type' => 'switcher',
-			'desc' => esc_html__('Enable Header Top Button', 'evior') ,
+			'desc' => esc_html__('Enable Header Top Button', 'momspace') ,
 			'dependency' => array(
 				'header_top_enable',
 				'==',
@@ -299,27 +299,27 @@ if( class_exists( 'CSF' ) ) {
 		array(
 			'id'         => 'top_text_btn',
 			'type'       => 'text',
-			'title'      => esc_html__('Top Button Text', 'evior') ,
-			'default'    => esc_html__('Buy Theme', 'evior') ,
-			'desc'       => esc_html__('Type text', 'evior') ,
+			'title'      => esc_html__('Top Button Text', 'momspace') ,
+			'default'    => esc_html__('Buy Theme', 'momspace') ,
+			'desc'       => esc_html__('Type text', 'momspace') ,
 			'dependency' => array( 'header_top_enable', '==', 'true' ),
 		),
 			
 		array(
 		'id'         => 'top_text_btn_link',
 		'type'       => 'text',
-		'title'      => esc_html__('Top Button Link', 'evior') ,
-		'default'    => esc_html__('#', 'evior') ,
-		'desc'       => esc_html__('Type Button Link', 'evior') ,
+		'title'      => esc_html__('Top Button Link', 'momspace') ,
+		'default'    => esc_html__('#', 'momspace') ,
+		'desc'       => esc_html__('Type Button Link', 'momspace') ,
 		'dependency' => array( 'header_top_enable', '==', 'true' ),
 	),
 	
 	
 	array(
 		'id' => 'top_bar_nav',
-		'title' => esc_html__('Top Bar Menu','evior'),
+		'title' => esc_html__('Top Bar Menu','momspace'),
 		'type' => 'switcher',
-		'desc' => esc_html__('You can set menu on Top bar in Header Style 4','evior'),
+		'desc' => esc_html__('You can set menu on Top bar in Header Style 4','momspace'),
 		'default' => false,
 	),
 
@@ -328,30 +328,30 @@ if( class_exists( 'CSF' ) ) {
 		
 	array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Search Bar & Login Option','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Search Bar & Login Option','momspace').'</h3>'
       ),
 	  
       array(
         'id' => 'search_bar_enable',
-        'title' => esc_html__('Search Bar Display In Header','evior'),
+        'title' => esc_html__('Search Bar Display In Header','momspace'),
         'type' => 'switcher',
-		'desc' => esc_html__('Enable or Disable Search Bar', 'evior') ,
+		'desc' => esc_html__('Enable or Disable Search Bar', 'momspace') ,
         'default' => true,
       ),
 	  
 	  array(
         'id' => 'login_btn_enable',
-        'title' => esc_html__('Show Login Button','evior'),
+        'title' => esc_html__('Show Login Button','momspace'),
         'type' => 'switcher',
-		'desc' => esc_html__('Enable or Disable Login Button', 'evior') ,
+		'desc' => esc_html__('Enable or Disable Login Button', 'momspace') ,
         'default' => true,
       ), 
 	  
 	  array(
         'id' => 'register_btn_enable',
-        'title' => esc_html__('Show Register Button','evior'),
+        'title' => esc_html__('Show Register Button','momspace'),
         'type' => 'switcher',
-		'desc' => esc_html__('Enable or Disable Register Button', 'evior') ,
+		'desc' => esc_html__('Enable or Disable Register Button', 'momspace') ,
         'default' => true,
       ),
 	  
@@ -359,14 +359,14 @@ if( class_exists( 'CSF' ) ) {
 		
 	array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Social Options','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Social Options','momspace').'</h3>'
      ),	
 	
       array(
         'id' => 'header_social_enable',
-        'title' => esc_html__('Do You want to Show Header Social Icons','evior'),
+        'title' => esc_html__('Do You want to Show Header Social Icons','momspace'),
         'type' => 'switcher',
-		'desc' => esc_html__('Enable or Disable Social Bar', 'evior') ,
+		'desc' => esc_html__('Enable or Disable Social Bar', 'momspace') ,
         'default' => false,
       ),
 	  
@@ -374,18 +374,18 @@ if( class_exists( 'CSF' ) ) {
 	array(
         'id'     => 'social-icon',
         'type'   => 'repeater',
-        'title'  => esc_html__('Repeater','evior'),
+        'title'  => esc_html__('Repeater','momspace'),
         'dependency' => array('header_social_enable','==','true'),
         'fields' => array(
           array(
             'id'    => 'icon',
             'type'  => 'icon',
-            'title' => esc_html__('Pick Up Your Social Icon','evior'),
+            'title' => esc_html__('Pick Up Your Social Icon','momspace'),
           ),
           array(
             'id'    => 'link',
             'type'  => 'text',
-            'title' => esc_html__('Inter Social Url','evior'),
+            'title' => esc_html__('Inter Social Url','momspace'),
           ),
 
         ),
@@ -401,14 +401,14 @@ if( class_exists( 'CSF' ) ) {
      ** Typography Options
      -------------------------------------*/
     CSF::createSection($prefix . '_theme_options', array(
-        'title' => esc_html__('Typography', 'evior') ,
+        'title' => esc_html__('Typography', 'momspace') ,
 		'id' => 'typography_options',
 		'icon' => 'fa fa-font',
         'fields' => array(
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Body', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Body', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -431,7 +431,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h1', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h1', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -463,7 +463,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h2', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h2', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -495,7 +495,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h3', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h3', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -527,7 +527,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h4', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h4', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -559,7 +559,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h5', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h5', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -591,7 +591,7 @@ if( class_exists( 'CSF' ) ) {
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Heading h6', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Heading h6', 'momspace') . '</h3>'
             ) ,
 
             array(
@@ -633,27 +633,27 @@ if( class_exists( 'CSF' ) ) {
 
    // blog optoins
     CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Blog','evior'),
+    'title'  => esc_html__('Blog','momspace'),
     'id' => 'blog_page',
     'icon' => 'fa fa-bookmark',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Blog Options','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Blog Options','momspace').'</h3>'
       ),
 	  
 	  	array(
 			'id'         => 'blog_title',
 			'type'       => 'text',
-			'title'      => esc_html__('Blog Page Title','evior'),
-			'default'    => esc_html__('Blog Page','evior'),
-			'desc'       => esc_html__('Type Blog Page Title','evior'),
+			'title'      => esc_html__('Blog Page Title','momspace'),
+			'default'    => esc_html__('Blog Page','momspace'),
+			'desc'       => esc_html__('Type Blog Page Title','momspace'),
 		),
 		
 		array(
 			'id' => 'page-spacing-blog',
 			'type' => 'spacing',
-			'title' => esc_html__('Blog Page Spacing','evior'),
+			'title' => esc_html__('Blog Page Spacing','momspace'),
 			'output' => '.main-container.blog-spacing',
 			'output_mode' => 'padding', // or margin, relative
 			'default' => array(
@@ -667,9 +667,9 @@ if( class_exists( 'CSF' ) ) {
 		
 		array(
 			'id' => 'blog_breadcrumb_enable',
-			'title' => esc_html__('Breadcrumb', 'evior') ,
+			'title' => esc_html__('Breadcrumb', 'momspace') ,
 			'type' => 'switcher',
-			'desc' => esc_html__('Enable Breadcrumb', 'evior') ,
+			'desc' => esc_html__('Enable Breadcrumb', 'momspace') ,
 			'default' => true,
 		) ,
 			
@@ -683,21 +683,21 @@ if( class_exists( 'CSF' ) ) {
     // category 
 	
   CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Category','evior'),
+    'title'  => esc_html__('Category','momspace'),
     'id' => 'cat_page',
     'icon' => 'fa fa-list-ul',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' => '<h3>' . esc_html__('Theme Category Options. You can Customize Each Catgeory by Editing Individually.', 'evior') . '</h3>'
+        'content' => '<h3>' . esc_html__('Theme Category Options. You can Customize Each Catgeory by Editing Individually.', 'momspace') . '</h3>'
       ),
        array(
-			'id' => 'evior_cat_layout',
+			'id' => 'momspace_cat_layout',
             'type' => 'image_select',
-            'title' => esc_html__('Select Category Layout','evior'),
+            'title' => esc_html__('Select Category Layout','momspace'),
             'options' => array(
-                'catt-one' => EVIOR_IMG . '/admin/page/style1.png',
-                'catt-two' => EVIOR_IMG . '/admin/page/style2.png',
+                'catt-one' => momspace_IMG . '/admin/page/style1.png',
+                'catt-two' => momspace_IMG . '/admin/page/style2.png',
             ),
             'default' => 'catt-one'
         ),
@@ -705,7 +705,7 @@ if( class_exists( 'CSF' ) ) {
 		array(
 			'id' => 'page-spacing-category',
 			'type' => 'spacing',
-			'title' => esc_html__('Category Page Spacing','evior'),
+			'title' => esc_html__('Category Page Spacing','momspace'),
 			'output' => '.main-container.cat-page-spacing',
 			'output_mode' => 'padding', // or margin, relative
 			'default' => array(
@@ -725,22 +725,22 @@ if( class_exists( 'CSF' ) ) {
 
   // blog single optoins
     CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Single','evior'),
+    'title'  => esc_html__('Single','momspace'),
     'id' => 'single_page',
     'icon' => 'fa fa-pencil-square-o',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Blog Single Page Option','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Blog Single Page Option','momspace').'</h3>'
       ),
 	  
        array(
-            'id' => 'evior_single_blog_layout',
+            'id' => 'momspace_single_blog_layout',
             'type' => 'image_select',
-            'title' => esc_html__('Select Single Blog Style','evior'),
+            'title' => esc_html__('Select Single Blog Style','momspace'),
             'options' => array(
-                'single-one' => EVIOR_IMG . '/admin/page/blog-1.png',
-                'single-two' => EVIOR_IMG . '/admin/page/blog-2.png',
+                'single-one' => momspace_IMG . '/admin/page/blog-1.png',
+                'single-two' => momspace_IMG . '/admin/page/blog-2.png',
             ),
             'default' => 'single-one'
         ),
@@ -748,7 +748,7 @@ if( class_exists( 'CSF' ) ) {
 		array(
 			'id' => 'page-spacing-single',
 			'type' => 'spacing',
-			'title' => esc_html__('Single Blog Spacing','evior'),
+			'title' => esc_html__('Single Blog Spacing','momspace'),
 			'output' => '.single-one-bwrap',
 			'output_mode' => 'padding', // or margin, relative
 			'default' => array(
@@ -763,64 +763,64 @@ if( class_exists( 'CSF' ) ) {
 		array(
 			'id'         => 'blog_prev_title',
 			'type'       => 'text',
-			'title'      => esc_html__('Previous Post Text','evior'),
-			'default'    => esc_html__('Previous Post','evior'),
-			'desc'       => esc_html__('Type Previous Post Link Title','evior'),
+			'title'      => esc_html__('Previous Post Text','momspace'),
+			'default'    => esc_html__('Previous Post','momspace'),
+			'desc'       => esc_html__('Type Previous Post Link Title','momspace'),
 		),
 		
 		array(
 			'id'         => 'blog_next_title',
 			'type'       => 'text',
-			'title'      => esc_html__('Next Post Text','evior'),
-			'default'    => esc_html__('Next Post','evior'),
-			'desc'       => esc_html__('Type Next Post Link Title','evior'),
+			'title'      => esc_html__('Next Post Text','momspace'),
+			'default'    => esc_html__('Next Post','momspace'),
+			'desc'       => esc_html__('Type Next Post Link Title','momspace'),
 		),
 			
 		array(
 			'id' => 'blog_single_cat',
-			'title' => esc_html__('Show Catgeory','evior'),
+			'title' => esc_html__('Show Catgeory','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Show Category Name','evior'),
+			'desc' => esc_html__('Show Category Name','momspace'),
 			'default' => true,
 		),
 		
 		array(
 			'id' => 'blog_single_author',
-			'title' => esc_html__('Show Author','evior'),
+			'title' => esc_html__('Show Author','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Single Post Author','evior'),
+			'desc' => esc_html__('Single Post Author','momspace'),
 			'default' => true,
 		),
 
 		array(
 			'id' => 'blog_nav',
-			'title' => esc_html__('Show Navigation','evior'),
+			'title' => esc_html__('Show Navigation','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Post Navigation','evior'),
+			'desc' => esc_html__('Post Navigation','momspace'),
 			'default' => true,
 		),
 		
 		array(
 			'id' => 'blog_tags',
-			'title' => esc_html__('Show Tags','evior'),
+			'title' => esc_html__('Show Tags','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Show Post Tags','evior'),
+			'desc' => esc_html__('Show Post Tags','momspace'),
 			'default' => true,
 		),
 		
 		array(
 			'id' => 'blog_related',
-			'title' => esc_html__('Show Related Posts','evior'),
+			'title' => esc_html__('Show Related Posts','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Related Posts','evior'),
+			'desc' => esc_html__('Related Posts','momspace'),
 			'default' => true,
 		),
 		
 		array(
 			'id' => 'blog_views',
-			'title' => esc_html__('Show Post Views','evior'),
+			'title' => esc_html__('Show Post Views','momspace'),
 			'type' => 'switcher',
-			'desc' => esc_html__('Post views','evior'),
+			'desc' => esc_html__('Post views','momspace'),
 			'default' => false,
 		),
 
@@ -834,25 +834,25 @@ if( class_exists( 'CSF' ) ) {
   --------------------------------------------------------*/
     
   CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Shop','evior'),
+    'title'  => esc_html__('Shop','momspace'),
     'id' => 'cat_page',
     'icon' => 'fa fa-pencil-square-o',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' => '<h3>' . esc_html__('Shop Layout', 'evior') . '</h3>'
+        'content' => '<h3>' . esc_html__('Shop Layout', 'momspace') . '</h3>'
       ),
       
       
         array(
             'id' => 'shop_layout',
             'type' => 'image_select',
-            'title' => esc_html__('Shop Layout','evior'),
+            'title' => esc_html__('Shop Layout','momspace'),
             'options' => array(
              
-                'right-sidebar' => EVIOR_IMG . '/admin/header-style/right-sidebar.png',
-                'left-sidebar' => EVIOR_IMG . '/admin/header-style/left-sidebar.png',
-                'no-sidebar' => EVIOR_IMG . '/admin/header-style/default.png',
+                'right-sidebar' => momspace_IMG . '/admin/header-style/right-sidebar.png',
+                'left-sidebar' => momspace_IMG . '/admin/header-style/left-sidebar.png',
+                'no-sidebar' => momspace_IMG . '/admin/header-style/default.png',
             ),
             
             'default' => 'right-sidebar'
@@ -862,12 +862,12 @@ if( class_exists( 'CSF' ) ) {
         array(
             'id' => 'single_shop_layout',
             'type' => 'image_select',
-            'title' => esc_html__('Single Product Layout','evior'),
+            'title' => esc_html__('Single Product Layout','momspace'),
             'options' => array(
              
-                'right-sidebar' => EVIOR_IMG . '/admin/header-style/right-sidebar.png',
-                'left-sidebar' => EVIOR_IMG . '/admin/header-style/left-sidebar.png',
-                'no-sidebar' => EVIOR_IMG . '/admin/header-style/default.png',
+                'right-sidebar' => momspace_IMG . '/admin/header-style/right-sidebar.png',
+                'left-sidebar' => momspace_IMG . '/admin/header-style/left-sidebar.png',
+                'no-sidebar' => momspace_IMG . '/admin/header-style/default.png',
             ),
             
             'default' => 'right-sidebar'
@@ -876,17 +876,17 @@ if( class_exists( 'CSF' ) ) {
         array(
             'id'         => 'product_page_title',
             'type'       => 'text',
-            'title'      => esc_html__('Poduct Page Title Text','evior'),
-            'default'    => esc_html__('Product Details','evior'),
-            'desc'       => esc_html__('Give Product Page Title Text','evior'),
+            'title'      => esc_html__('Poduct Page Title Text','momspace'),
+            'default'    => esc_html__('Product Details','momspace'),
+            'desc'       => esc_html__('Give Product Page Title Text','momspace'),
         ),
 
 
         array(
             'id' => 'related_product_show',
-            'title' => esc_html__('Show or Hide Related Products', 'evior') ,
+            'title' => esc_html__('Show or Hide Related Products', 'momspace') ,
             'type' => 'switcher',
-            'desc' => esc_html__('Related Product Show or Hide', 'evior') ,
+            'desc' => esc_html__('Related Product Show or Hide', 'momspace') ,
             'default' => true,
         ) ,
 
@@ -902,34 +902,34 @@ if( class_exists( 'CSF' ) ) {
        ** Footer  Options
   --------------------------------------------------------*/
   CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Footer','evior'),
+    'title'  => esc_html__('Footer','momspace'),
     'id' => 'footer_options',
     'icon' => 'fa fa-copyright',
     'fields' => array(
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Footer Options','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Footer Options','momspace').'</h3>'
       ),
 	  
 	array(
         'id' => 'footer_nav',
-        'title' => esc_html__('Footer Right Menu','evior'),
+        'title' => esc_html__('Footer Right Menu','momspace'),
         'type' => 'switcher',
-		'desc' => esc_html__('You can set Yes or No to show Footer menu','evior'),
+		'desc' => esc_html__('You can set Yes or No to show Footer menu','momspace'),
         'default' => false,
       ),
 	  
 	  
       array(
         'type' => 'subheading',
-        'content' =>'<h3>'.esc_html__('Footer Copyright Area Options','evior').'</h3>'
+        'content' =>'<h3>'.esc_html__('Footer Copyright Area Options','momspace').'</h3>'
       ),
 
       array(
         'id' => 'copyright_text',
-        'title' => esc_html__('Copyright Area Text','evior'),
+        'title' => esc_html__('Copyright Area Text','momspace'),
         'type' => 'textarea',
-        'desc' => esc_html__('Footer Copyright Text','evior'),
+        'desc' => esc_html__('Footer Copyright Text','momspace'),
       ),
 
 
@@ -940,7 +940,7 @@ if( class_exists( 'CSF' ) ) {
 
   // Backup section
   CSF::createSection( $prefix.'_theme_options', array(
-    'title'  => esc_html__('Backup','evior'),
+    'title'  => esc_html__('Backup','momspace'),
     'id'    => 'backup_options',
     'icon'  => 'fa fa-window-restore',
     'fields' => array(

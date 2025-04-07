@@ -25,7 +25,7 @@ get_header( 'shop' );
         <div class="row justify-content-center">
             <div class="col-md-12">
 				<h1 class="theme-breacrumb-title">
-					<?php echo esc_html__('Shop', 'evior'); ?>
+					<?php echo esc_html__('Shop', 'momspace'); ?>
 				</h1>
 				<div class="breaccrumb-inner">
 					<?php 
@@ -42,7 +42,7 @@ get_header( 'shop' );
 
 <div class="content-product-wrapper">
 	<div class="container">
-		<div class="row <?php if( evior_get_shop_layout() === 'left-sidebar' ) { echo "shop-left-col"; } else { echo "no-left-col"; } ?>">
+		<div class="row <?php if( momspace_get_shop_layout() === 'left-sidebar' ) { echo "shop-left-col"; } else { echo "no-left-col"; } ?>">
 			<?php
 			/**
 			 * Hook: woocommerce_before_main_content.

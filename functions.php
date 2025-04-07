@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Evior functions and definitions
+ * momspace functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package evior
+ * @package momspace
  */
 
 
@@ -22,12 +22,12 @@
      $theme_info = wp_get_theme();
  }
 
-define('EVIOR_DEV_MODE',true);
-$evior_version = EVIOR_DEV_MODE ? time() : $theme_info->get('Version');
-define('EVIOR_NAME',$theme_info->get('Name'));
-define('EVIOR_VERSION',$evior_version);
-define('EVIOR_AUTHOR',$theme_info->get('Author'));
-define('EVIOR_AUTHOR_URI',$theme_info->get('AuthorURI'));
+define('MOMSPACE_DEV_MODE',true);
+$momspace_version = MOMSPACE_DEV_MODE ? time() : $theme_info->get('Version');
+define('MOMSPACE_NAME',$theme_info->get('Name'));
+define('MOMSPACE_VERSION',$momspace_version);
+define('MOMSPACE_AUTHOR',$theme_info->get('Author'));
+define('MOMSPACE_AUTHOR_URI',$theme_info->get('AuthorURI'));
 
 
 /**
@@ -35,17 +35,19 @@ define('EVIOR_AUTHOR_URI',$theme_info->get('AuthorURI'));
  * @since 1.0.0
  * */
 
-define('EVIOR_THEME_URI', get_template_directory_uri());
-define('EVIOR_IMG', EVIOR_THEME_URI . '/assets/images');
-define('EVIOR_CSS', EVIOR_THEME_URI . '/assets/css');
-define('EVIOR_JS', EVIOR_THEME_URI . '/assets/js');
-define('EVIOR_THEME_DIR', get_template_directory());
-define('EVIOR_IMG_DIR', EVIOR_THEME_DIR . '/assets/images');
-define('EVIOR_CSS_DIR', EVIOR_THEME_DIR . '/assets/css');
-define('EVIOR_JS_DIR', EVIOR_THEME_DIR . '/assets/js');
-define('EVIOR_INC', EVIOR_THEME_DIR . '/inc');
-define('EVIOR_THEME_OPTIONS',EVIOR_INC .'/theme-options');
-define('EVIOR_THEME_OPTIONS_IMG',EVIOR_THEME_OPTIONS .'/img');
+define('MOMSPACE_THEME_URI', get_template_directory_uri());
+define('MOMSPACE_IMG', MOMSPACE_THEME_URI . '/assets/images');
+define('MOMSPACE_CSS', MOMSPACE_THEME_URI . '/assets/css');
+define('MOMSPACE_JS', MOMSPACE_THEME_URI . '/assets/js');
+define('MOMSPACE_THEME_DIR', get_template_directory());
+define('MOMSPACE_IMG_DIR', MOMSPACE_THEME_DIR . '/assets/images');
+define('MOMSPACE_CSS_DIR', MOMSPACE_THEME_DIR . '/assets/css');
+define('MOMSPACE_JS_DIR', MOMSPACE_THEME_DIR . '/assets/js');
+define('MOMSPACE_INC', MOMSPACE_THEME_DIR . '/inc');
+define('MOMSPACE_THEME_OPTIONS',MOMSPACE_INC .'/theme-options');
+define('MOMSPACE_THEME_OPTIONS_IMG',MOMSPACE_THEME_OPTIONS .'/img');
+define('MOMSPACE_SVG', MOMSPACE_THEME_DIR . '/inc');
+define('MOMSPACE_THEME_SVG',MOMSPACE_IMG_DIR .'/svg');
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -55,10 +57,10 @@ define('EVIOR_THEME_OPTIONS_IMG',EVIOR_THEME_OPTIONS .'/img');
  * as indicating support for post thumbnails.
  */
 
-function evior_setup(){
+function momspace_setup(){
 
     // make the theme available for translation
-    load_theme_textdomain( 'evior', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'momspace', get_template_directory() . '/languages' );
 
     // add support for post formats
     add_theme_support('post-formats', [
@@ -72,27 +74,17 @@ function evior_setup(){
     add_theme_support('title-tag');
 
     // add editor style theme support
-    function evior_theme_add_editor_styles() {
+    function momspace_theme_add_editor_styles() {
         add_editor_style( 'custom-style.css' );
     }
-    add_action( 'admin_init', 'evior_theme_add_editor_styles' );
+    add_action( 'admin_init', 'momspace_theme_add_editor_styles' );
 
     // add support for post thumbnails
     add_theme_support('post-thumbnails');
 
     // hard crop center center
     set_post_thumbnail_size(770, 470, ['center', 'center']);
-    add_image_size( 'evior-box-slider-small', 96, 96, true );
-
-
-    // register navigation menus
-    register_nav_menus(
-        [
-            'primary' => esc_html__('Primary Menu', 'evior'),
-            'footermenu' => esc_html__('Footer Menu', 'evior'),
-            'topmenu' => esc_html__('Top Bar Menu', 'evior'),
-        ]
-    );
+    add_image_size( 'momspace-box-slider-small', 96, 96, true );
 
 
     // HTML5 markup support for search form, comment form, and comments
@@ -127,7 +119,7 @@ function evior_setup(){
 
 }
 
-add_action('after_setup_theme', 'evior_setup');
+add_action('after_setup_theme', 'momspace_setup');
 
 /**
  * Register widget area.
@@ -135,13 +127,13 @@ add_action('after_setup_theme', 'evior_setup');
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-function evior_widget_init() {
+function momspace_widget_init() {
 
 
     register_sidebar( array (
-        'name' => esc_html__('Blog widget area', 'evior'),
+        'name' => esc_html__('Blog widget area', 'momspace'),
         'id' => 'sidebar-1',
-        'description' => esc_html__('Blog Sidebar Widget.', 'evior'),
+        'description' => esc_html__('Blog Sidebar Widget.', 'momspace'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
@@ -150,9 +142,9 @@ function evior_widget_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Widget Area One', 'evior' ),
+        'name'          => esc_html__( 'Footer Widget Area One', 'momspace' ),
         'id'            => 'footer-widget-1',
-        'description'   => esc_html__( 'Add Footer  widgets here.', 'evior' ),
+        'description'   => esc_html__( 'Add Footer  widgets here.', 'momspace' ),
         'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -160,9 +152,9 @@ function evior_widget_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Widget Area Two', 'evior' ),
+        'name'          => esc_html__( 'Footer Widget Area Two', 'momspace' ),
         'id'            => 'footer-widget-2',
-        'description'   => esc_html__( 'Add Footer widgets here.', 'evior' ),
+        'description'   => esc_html__( 'Add Footer widgets here.', 'momspace' ),
         'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -170,9 +162,9 @@ function evior_widget_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Widget Area Three', 'evior' ),
+        'name'          => esc_html__( 'Footer Widget Area Three', 'momspace' ),
         'id'            => 'footer-widget-3',
-        'description'   => esc_html__( 'Add Footer widgets here.', 'evior' ),
+        'description'   => esc_html__( 'Add Footer widgets here.', 'momspace' ),
         'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -180,9 +172,9 @@ function evior_widget_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Widget Area Four', 'evior' ),
+        'name'          => esc_html__( 'Footer Widget Area Four', 'momspace' ),
         'id'            => 'footer-widget-4',
-        'description'   => esc_html__( 'Add Footer widgets here.', 'evior' ),
+        'description'   => esc_html__( 'Add Footer widgets here.', 'momspace' ),
         'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -190,9 +182,9 @@ function evior_widget_init() {
     ) );
 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Widget Area Five', 'evior' ),
+        'name'          => esc_html__( 'Footer Widget Area Five', 'momspace' ),
         'id'            => 'footer-widget-5',
-        'description'   => esc_html__( 'Add Footer widgets here.', 'evior' ),
+        'description'   => esc_html__( 'Add Footer widgets here.', 'momspace' ),
         'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 class="widget-title">',
@@ -201,110 +193,149 @@ function evior_widget_init() {
 
 }
 
-add_action('widgets_init', 'evior_widget_init');
+add_action('widgets_init', 'momspace_widget_init');
 
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
 
 /**
  * Enqueue scripts and styles.
  */
-function evior_scripts() {
+function my_custom_theme_scripts() {
+    // Подключаем Bootstrap CSS
+    wp_enqueue_style('bootstrap-css', MOMSPACE_CSS . '/bootstrap.min.css');
 
-    wp_enqueue_style( 'font-awesome', EVIOR_CSS . '/font-awesome.css');
-    wp_enqueue_style( 'icon-font',  EVIOR_CSS . '/icon-font.css' );
-    wp_enqueue_style( 'remix-icon',  EVIOR_CSS . '/remix-icon.css' );
-    wp_enqueue_style( 'animate',  EVIOR_CSS . '/animate.css' );
-    wp_enqueue_style( 'magnific-popup',  EVIOR_CSS . '/magnific-popup.css' );
-    wp_enqueue_style( 'owl-carousel',  EVIOR_CSS . '/owl.carousel.min.css' );
-    wp_enqueue_style( 'owl-theme',  EVIOR_CSS . '/owl.theme.min.css' );
-    wp_enqueue_style( 'slick',  EVIOR_CSS . '/slick.css' );
-    wp_enqueue_style( 'slicknav',  EVIOR_CSS . '/slicknav.css' );
-    wp_enqueue_style( 'swiper',  EVIOR_CSS . '/swiper.min.css' );
-    wp_enqueue_style( 'flickity',  EVIOR_CSS . '/flickity.min.css' );
-    wp_enqueue_style( 'theme-fonts', EVIOR_CSS . '/theme-fonts.css', array(), '1.0', 'all');
+    // Подключаем Swiper CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 
-    // theme css
+    // Подключаем основной CSS файл
+    wp_enqueue_style('main-css', MOMSPACE_CSS . '/style.css');
 
+    // Подключаем jQuery (если не подключен)
+    wp_enqueue_script('jquery');
 
-    if (is_rtl()) {
-        wp_enqueue_style( 'bootstrap', EVIOR_CSS . '/bootstrap.min.css', array(), '4.0', 'all');
-        wp_enqueue_style( 'evior-main',  EVIOR_CSS . '/main.css' );
-        wp_enqueue_style( 'evior-rtl',  EVIOR_CSS . '/rtl.css' );
-        wp_enqueue_style( 'evior-responsive',  EVIOR_CSS . '/responsive.css' );
+    // Подключаем Swiper JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), null, true);
 
-    } else {
-        wp_enqueue_style( 'bootstrap', EVIOR_CSS . '/bootstrap.min.css', array(), '4.0', 'all');
-        wp_enqueue_style( 'evior-main',  EVIOR_CSS . '/main.css' );
-        wp_enqueue_style( 'evior-responsive',  EVIOR_CSS . '/responsive.css' );
-    }
-
-    wp_enqueue_style( 'evior-style', get_stylesheet_uri() );
-
-
-    wp_enqueue_script( 'bootstrap',  EVIOR_JS . '/bootstrap.min.js', array( 'jquery' ),  '4.0', true );
-    wp_enqueue_script( 'popper',  EVIOR_JS . '/popper.min.js', array( 'jquery' ),  '1.0', true );
-    wp_enqueue_script( 'jquery-magnific-popup',  EVIOR_JS . '/jquery.magnific-popup.min.js', array( 'jquery' ),  '1.0', true );
-    wp_enqueue_script( 'jquery-appear',  EVIOR_JS . '/jquery.appear.min.js', array( 'jquery' ),  '1.0', true );
-    wp_enqueue_script( 'owl-carousel',  EVIOR_JS . '/owl.carousel.min.js', array( 'jquery' ),  '1.0', true );
-    wp_enqueue_script( 'jquery-easypiechart', EVIOR_JS . '/jquery.easypiechart.min.js', array( 'jquery' ), '1.0', true );
-    wp_enqueue_script( 'slick', EVIOR_JS . '/slick.js', array( 'jquery' ), '1.0', true );
-    wp_enqueue_script( 'swiper', EVIOR_JS . '/swiper.min.js', array( 'jquery' ), '1.0', true );
-    wp_enqueue_script( 'jquery-slicknav', EVIOR_JS . '/jquery.slicknav.min.js', array( 'jquery' ), '1.0', true );
-    wp_enqueue_script( 'jquery-flickity', EVIOR_JS . '/flickity.min.js', array( 'jquery' ), '1.0', true );
-
-    // Custom JS Scripts
-
-    wp_enqueue_script( 'evior-scripts',  EVIOR_JS . '/scripts.js', array( 'jquery' ),  '1.0', true );
-
-
-
-    wp_localize_script( 'evior-scripts', 'evior_ajax', array(
-
-        'ajax_url' => admin_url( 'admin-ajax.php' ),
-
-    ) );
-
-
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
-    }
-
-
+    // Подключаем ваш JS файл
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array('jquery'), null, true);
 }
+add_action('wp_enqueue_scripts', 'my_custom_theme_scripts');
 
-add_action( 'wp_enqueue_scripts', 'evior_scripts' );
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => esc_html__('Header Menu', 'momspace'),
+            'primary-bottom' => esc_html__('Header Bottom Menu', 'momspace'),
+            'footer-menu-sections' => esc_html__('Footer Sections', 'momspace'),
+            'footer-menu-articles' => esc_html__('Footer Articles', 'momspace'),
+            'footer-menu-development' => esc_html__('Footer Development', 'momspace'),
+        )
+    );
+}
+add_action('init', 'register_my_menus');
 
+function replace_submenu_class($classes) {
+    // Удаляем класс sub-menu
+    $classes = array_diff($classes, array('sub-menu'));
+
+    // Добавляем класс dropdown-menu
+    $classes[] = 'dropdown-menu';
+
+    return $classes;
+}
+add_filter('nav_menu_submenu_css_class', 'replace_submenu_class');
+
+function add_custom_classes($classes, $item) {
+    // Добавляем класс nav-item к каждому li
+    $classes[] = 'nav-item';
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_custom_classes', 10, 2);
+
+function add_link_class($atts, $item, $args) {
+    // Добавляем класс nav-link к каждой ссылке
+    $atts['class'] =  $args->item_class . ' nav-link';
+
+    // Проверяем, есть ли подменю
+    if (in_array('menu-item-has-children', $item->classes)) {
+        $atts['class'] .= ' dropdown-toggle'; // Добавляем класс dropdown-toggle
+    }
+
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_link_class', 10, 3);
+
+function custom_wp_nav_menu($items, $args) {
+    if ($args->theme_location == 'primary') {
+        // Добавляем элемент с иконкой "sandwich" только в начале
+        $sandwich_icon = '<li class="nav-item"><label class="sandwich" for="open-nav-menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="27" viewBox="0 0 38 27" fill="none">
+                                <path d="M2 1.5H23.1846" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M2 13.5H36.4756" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M2 25.5H26.5186" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </label></li>';
+
+        // Объединяем иконку с остальными элементами меню
+
+
+        $items = $sandwich_icon . $items;
+
+    }
+
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'custom_wp_nav_menu', 10, 2);
+
+function add_dropdown_classes($output, $item, $depth, $args) {
+    if (in_array('menu-item-has-children', $item->classes)) {
+        if ($depth === 0) { // Уровень главного меню
+            return str_replace('<ul class="sub-menu"', '<ul class="dropdown-menu"', $output);
+        }
+
+        return str_replace('<li ', '<li class="dropdown " ', $output);
+    }
+
+    return $output;
+}
+add_filter('walker_nav_menu_start_el', 'add_dropdown_classes', 10, 4);
 
 /*
 * Include codester helper functions
 * @since 1.0.0
 */
 
-if ( file_exists( EVIOR_INC.'/cs-framework-functions.php' ) ) {
-    require_once  EVIOR_INC.'/cs-framework-functions.php';
+if ( file_exists( MOMSPACE_INC.'/cs-framework-functions.php' ) ) {
+    require_once  MOMSPACE_INC.'/cs-framework-functions.php';
 }
 
 /**
  * Theme option panel & Metaboxes.
  */
- if ( file_exists( EVIOR_THEME_OPTIONS.'/theme-options.php' ) ) {
-     require_once  EVIOR_THEME_OPTIONS.'/theme-options.php';
+ if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-options.php' ) ) {
+     require_once  MOMSPACE_THEME_OPTIONS.'/theme-options.php';
  }
 
-if ( file_exists( EVIOR_THEME_OPTIONS.'/theme-metabox.php' ) ) {
-    require_once  EVIOR_THEME_OPTIONS.'/theme-metabox.php';
+if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-metabox.php' ) ) {
+    require_once  MOMSPACE_THEME_OPTIONS.'/theme-metabox.php';
 }
 
-if ( file_exists( EVIOR_THEME_OPTIONS.'/theme-nav-options.php' ) ) {
-    require_once  EVIOR_THEME_OPTIONS.'/theme-nav-options.php';
+if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-nav-options.php' ) ) {
+    require_once  MOMSPACE_THEME_OPTIONS.'/theme-nav-options.php';
 }
 
-if ( file_exists( EVIOR_THEME_OPTIONS.'/theme-customizer.php' ) ) {
-    require_once  EVIOR_THEME_OPTIONS.'/theme-customizer.php';
+if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-customizer.php' ) ) {
+    require_once  MOMSPACE_THEME_OPTIONS.'/theme-customizer.php';
 }
 
 
-if ( file_exists( EVIOR_THEME_OPTIONS.'/theme-inline-styles.php' ) ) {
-    require_once  EVIOR_THEME_OPTIONS.'/theme-inline-styles.php';
+if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-inline-styles.php' ) ) {
+    require_once  MOMSPACE_THEME_OPTIONS.'/theme-inline-styles.php';
 }
 
 
@@ -340,17 +371,17 @@ if ( class_exists( 'woocommerce' ) ) {
  *
  * @global int $content_width
  */
-function evior_content_width() {
-    $GLOBALS['content_width'] = apply_filters( 'evior_content_width', 640 );
+function momspace_content_width() {
+    $GLOBALS['content_width'] = apply_filters( 'momspace_content_width', 640 );
 }
 
-add_action( 'after_setup_theme', 'evior_content_width', 0 );
+add_action( 'after_setup_theme', 'momspace_content_width', 0 );
 
 /**
  * Nav menu fallback function
  */
 
-function evior_fallback_menu() {
+function momspace_fallback_menu() {
     get_template_part( 'template-parts/default', 'menu' );
 }
 
@@ -359,7 +390,7 @@ function evior_fallback_menu() {
  * Post List Load More Function
  */
 
-function evior_post_ajax_loading_cb()
+function momspace_post_ajax_loading_cb()
 {
     $settings =  $_POST['ajax_json_data'];
     //$show_gradient = (($settings['show_gradient']== 'yes') ? 'gradient-post' : '');
@@ -436,7 +467,7 @@ function evior_post_ajax_loading_cb()
 
                     <?php if($settings['show_cat'] == 'yes'): ?>
                         <div class="category-box">
-                            <?php require EVIOR_THEME_DIR . '/template-parts/cat-color.php'; ?>
+                            <?php require MOMSPACE_THEME_DIR . '/template-parts/cat-color.php'; ?>
                         </div>
                     <?php endif; ?>
 
@@ -450,7 +481,7 @@ function evior_post_ajax_loading_cb()
 
                     <?php if($settings['show_read_time'] == 'yes'): ?>
                         <div class="read-time-box">
-                            <?php echo evior_reading_time(); ?>
+                            <?php echo momspace_reading_time(); ?>
                         </div>
                     <?php endif; ?>
 
@@ -474,8 +505,8 @@ function evior_post_ajax_loading_cb()
 
 }
 
-add_action( 'wp_ajax_nopriv_evior_post_ajax_loading', 'evior_post_ajax_loading_cb' );
-add_action( 'wp_ajax_evior_post_ajax_loading', 'evior_post_ajax_loading_cb' );
+add_action( 'wp_ajax_nopriv_momspace_post_ajax_loading', 'momspace_post_ajax_loading_cb' );
+add_action( 'wp_ajax_momspace_post_ajax_loading', 'momspace_post_ajax_loading_cb' );
 
 // Кастомные функции
 function transliterateen($input){
@@ -520,7 +551,7 @@ function transliterate($input){
 
 // Стили
 function my_theme_enqueue_styles() {
-    wp_enqueue_style('evior-child-style', get_stylesheet_directory_uri() . '/assets/css/custom-style.css');
+    wp_enqueue_style('momspace-child-style', get_stylesheet_directory_uri() . '/assets/css/custom-style.css');
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 
@@ -602,6 +633,24 @@ function custom_query_vars($vars) {
 add_filter('query_vars', 'custom_query_vars');
 
 function custom_rewrite_rules() {
+
+    if (preg_match('/^\/assets\/images\/svg\/(.*)$/', $_SERVER['REQUEST_URI'], $matches)) {
+        $image_path = get_template_directory() . '/assets/images/svg/' . $matches[1];
+        if (file_exists($image_path)) {
+            header('Content-Type: image/svg+xml'); // Убедитесь, что тип контента соответствует вашему изображению
+            readfile($image_path);
+            exit;
+        }
+    }
+
+    if (preg_match('/^\/assets\/images\/(.*)$/', $_SERVER['REQUEST_URI'], $matches)) {
+        $image_path = get_template_directory() . '/assets/images/' . $matches[1];
+        if (file_exists($image_path)) {
+            header('Content-Type: image/png'); // Убедитесь, что тип контента соответствует вашему изображению
+            readfile($image_path);
+            exit;
+        }
+    }
 
     // Правило для пагинации
     add_rewrite_rule(

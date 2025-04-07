@@ -3,7 +3,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package evior
+ * @package momspace
  */
 
 /**
@@ -16,16 +16,16 @@
 
 /** Echo Variable **/
 
-function evior_return( $s ) {
+function momspace_return( $s ) {
    return $s;
 }
 
 
 /** Get Tag List **/
 
-if( !function_exists('evior_post_tags')){
+if( !function_exists('momspace_post_tags')){
 	
-	function evior_post_tags() {
+	function momspace_post_tags() {
 		$terms = get_terms( array(
 			'taxonomy'    => 'post_tag',
 			'hide_empty'  => false,
@@ -41,7 +41,7 @@ if( !function_exists('evior_post_tags')){
 
 /** Post Read Time **/
 
-function evior_reading_time() {
+function momspace_reading_time() {
 	
 	global $post;
 	
@@ -61,14 +61,14 @@ function evior_reading_time() {
 
 /** Post View **/
  
-function evior_get_post_view() {
+function momspace_get_post_view() {
 
 	$count = get_post_meta( get_the_ID(), 'post_views_count', true );
 	return "$count";
 }
 
 
-function evior_set_post_view() {
+function momspace_set_post_view() {
 
 	$key = 'post_views_count';
 	$post_id = get_the_ID();
@@ -82,7 +82,7 @@ function evior_set_post_view() {
 
 // return embed code video url
 // ----------------------------------------------------------------------------------------
-function evior_video_embed($url){
+function momspace_video_embed($url){
     //This is a general function for generating an embed link of an FB/Vimeo/Youtube Video.
 	$embed_url = '';
     if(strpos($url, 'facebook.com/') !== false) {
@@ -125,8 +125,8 @@ function evior_video_embed($url){
 
 //*** Prev Next Post ***//
 
-if(!function_exists('evior_theme_post_navigation')) {
-  function evior_theme_post_navigation() { 
+if(!function_exists('momspace_theme_post_navigation')) {
+  function momspace_theme_post_navigation() { 
 
     $previous_post       = get_previous_post();
     $prev_thumbnail      = (is_object($previous_post) && !empty($previous_post)) ? get_the_post_thumbnail($previous_post->ID):'';
@@ -150,7 +150,7 @@ if(!function_exists('evior_theme_post_navigation')) {
           <div class="theme_blog_nav_Inner">
             <div class="theme_blog_nav_Label">
 			
-				<?php $blog_prev_title = evior_get_option('blog_prev_title');  ?>
+				<?php $blog_prev_title = momspace_get_option('blog_prev_title');  ?>
 				<?php echo esc_html($blog_prev_title); ?>
 			
 			</div>
@@ -174,7 +174,7 @@ if(!function_exists('evior_theme_post_navigation')) {
           <div class="theme_blog_Inner">
             <div class="theme_blog_nav_Label">
 			
-			<?php $blog_next_title = evior_get_option('blog_next_title');  ?>
+			<?php $blog_next_title = momspace_get_option('blog_next_title');  ?>
 			<?php echo esc_html($blog_next_title); ?>
 			
 			</div>
@@ -194,28 +194,28 @@ if(!function_exists('evior_theme_post_navigation')) {
 
 //*** Categories Count custom markup ***//
 
-function evior_categories_postcount_filter ($variable) {
+function momspace_categories_postcount_filter ($variable) {
    $variable = str_replace('(', '<span class="post_count"> ', $variable);
    $variable = str_replace(')', ' </span>', $variable);
    return $variable;
 }
-add_filter('wp_list_categories','evior_categories_postcount_filter');
+add_filter('wp_list_categories','momspace_categories_postcount_filter');
 
 
 /** Add Contact Methods in the User Profile **/
-function evior_user_contact_methods( $user_contact ) {
+function momspace_user_contact_methods( $user_contact ) {
 	
-    $user_contact['facebook']   = esc_html__( 'Facebook Profile Link', 'evior' );
-    $user_contact['twitter']    = esc_html__( 'Twitter Profile', 'evior' );
-    $user_contact['instagram']  = esc_html__( 'Instagram', 'evior' ); 
-	$user_contact['pinterest']  = esc_html__( 'Pinterest', 'evior' );
-	$user_contact['youtube']    = esc_html__( 'Youtube Profile', 'evior' );
+    $user_contact['facebook']   = esc_html__( 'Facebook Profile Link', 'momspace' );
+    $user_contact['twitter']    = esc_html__( 'Twitter Profile', 'momspace' );
+    $user_contact['instagram']  = esc_html__( 'Instagram', 'momspace' ); 
+	$user_contact['pinterest']  = esc_html__( 'Pinterest', 'momspace' );
+	$user_contact['youtube']    = esc_html__( 'Youtube Profile', 'momspace' );
 	
     return $user_contact; 
 };
-add_filter( 'user_contactmethods', 'evior_user_contact_methods' );
+add_filter( 'user_contactmethods', 'momspace_user_contact_methods' );
 
-function evior_theme_author_box() {
+function momspace_theme_author_box() {
 
     global $post;
 
@@ -242,7 +242,7 @@ function evior_theme_author_box() {
     // Author avatar - - the number 90 is the px size of the image.
     $theme_author_markup .= '<div class="author-thumb">' . get_avatar( get_the_author_meta('ID') , 200 ) . '</div>';
     $theme_author_markup .= '<div class="theme_author_Info">';
-    $theme_author_markup .= '<h6 class="theme_author_Title">' . esc_html__('Об авторе', 'evior'). '</h6>';
+    $theme_author_markup .= '<h6 class="theme_author_Title">' . esc_html__('Об авторе', 'momspace'). '</h6>';
     $theme_author_markup .= '<h4 class="theme_author__Name">' . $display_name . '</h4>';
     $theme_author_markup .= '<p class="theme_author__Description">' . get_the_author_meta( 'description' ). '</p>';
     $theme_author_markup .= '<div class="theme_author_Socials">';

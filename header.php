@@ -6,10 +6,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package evior
+ * @package momspace
  */
  
-$evior_preloader = evior_get_option('preloader_enable', true);
+$momspace_preloader = momspace_get_option('preloader_enable', true);
  
  
 ?>
@@ -27,7 +27,7 @@ $evior_preloader = evior_get_option('preloader_enable', true);
 		<?php wp_body_open(); ?>
 
 		<!-- Theme Preloader -->
-		<?php if($evior_preloader == true) :?>
+		<?php if($momspace_preloader == true) :?>
 		<div id="preloader">
 			<div class="loader loader-1">
 			  <div class="loader-outter"></div>
@@ -37,34 +37,20 @@ $evior_preloader = evior_get_option('preloader_enable', true);
 		<?php endif; ?>
 
 		<!-- Post Progressbar -->
-		<div class="evior-progress-container">
-			<div class="evior-progress-bar" id="eviorBar"></div>
+		<div class="momspace-progress-container">
+			<div class="momspace-progress-bar" id="momspaceBar"></div>
 		</div>
 
-
-
-		<div class="body-inner-content">
+		<div class="content-wrapper">
       
 		<?php
 		
 		// Select Header Style
 		
-		$evior_nav_global = evior_get_option( 'nav_menu' ); // Global
-		$evior_nav_style =  get_post_meta( get_the_ID(), 'evior_post_meta', true ); // Post Metabox
+		$momspace_nav_global = momspace_get_option( 'nav_menu' ); // Global
+		$momspace_nav_style =  get_post_meta( get_the_ID(), 'momspace_post_meta', true ); // Post Metabox
 
-		if( is_page() && !empty( $evior_nav_style  ) ) {
-		 
-			get_template_part( 'template-parts/headers/'.$evior_nav_style['nav_menu'].'' ); 
-		
-		} elseif ( class_exists( 'CSF' ) && !empty( $evior_nav_global ) ) {
-			
-			get_template_part( 'template-parts/headers/'.$evior_nav_global.'' ); 
-			
-		} else {
-			
-			get_template_part( 'template-parts/headers/nav-style-three' ); 
-			
-		}
-	
-		?>
+        get_template_part( 'template-parts/header' );
+
+        ?>
 		

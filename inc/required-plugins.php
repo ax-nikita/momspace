@@ -34,7 +34,7 @@
  
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'evior_register_required_plugins' );
+add_action( 'tgmpa_register', 'momspace_register_required_plugins' );
 
 /**
  * Register the required plugins for this theme.
@@ -53,7 +53,7 @@ add_action( 'tgmpa_register', 'evior_register_required_plugins' );
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
-function evior_register_required_plugins() {
+function momspace_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
@@ -62,58 +62,58 @@ function evior_register_required_plugins() {
 	
 		
 		array(
-			'name'		 => esc_html__( 'Elementor', 'evior' ),
+			'name'		 => esc_html__( 'Elementor', 'momspace' ),
 			'slug'		 => 'elementor',
 			'required'	 => true,
 		),
 		
 		array(
-			'name'		 => esc_html__( 'Evior Extra', 'evior' ),
-			'source'     => get_template_directory() . '/inc/plugins/evior-extra.zip',
-			'slug'		 => 'evior-extra',
+			'name'		 => esc_html__( 'momspace Extra', 'momspace' ),
+			'source'     => get_template_directory() . '/inc/plugins/momspace-extra.zip',
+			'slug'		 => 'momspace-extra',
 			'required'	 => true,
 			'version'	 => '1.0', 
         ),
 		
 		
 		array(
-			'name'		 => esc_html__( 'MC4WP: Mailchimp for WordPress', 'evior' ),
+			'name'		 => esc_html__( 'MC4WP: Mailchimp for WordPress', 'momspace' ),
 			'slug'		 => 'mailchimp-for-wp',
 			'required'	 => true,
         ),
 		
 		array(
-			'name'		 => esc_html__( 'Contact Form 7', 'evior' ),
+			'name'		 => esc_html__( 'Contact Form 7', 'momspace' ),
 			'slug'		 => 'contact-form-7',
 			'required'	 => true,
         ),
 		
 		array(
-			'name'		 => esc_html__( 'Flexy Breadcrumb', 'evior' ),
+			'name'		 => esc_html__( 'Flexy Breadcrumb', 'momspace' ),
 			'slug'		 => 'flexy-breadcrumb',
 			'required'	 => true,
 		),	
 
 		array(
-			'name'		 => esc_html__( 'Absolute Reviews', 'evior' ),
+			'name'		 => esc_html__( 'Absolute Reviews', 'momspace' ),
 			'slug'		 => 'absolute-reviews',
 			'required'	 => true,
 		),
 
 		array(
-			'name'		 => esc_html__( 'WooCommerce', 'evior' ),
+			'name'		 => esc_html__( 'WooCommerce', 'momspace' ),
 			'slug'		 => 'woocommerce',
 			'required'	 => true,
 		),
 
 		array(
-			'name'		 => esc_html__( 'AddToAny Share Buttons', 'evior' ),
+			'name'		 => esc_html__( 'AddToAny Share Buttons', 'momspace' ),
 			'slug'		 => 'add-to-any',
 			'required'	 => true,
 		),
 		
 		array(
-			'name'		 => esc_html__( 'My Favorites', 'evior' ),
+			'name'		 => esc_html__( 'My Favorites', 'momspace' ),
 			'slug'		 => 'my-favorites',
 			'required'	 => true,
 		),
@@ -140,7 +140,7 @@ function evior_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'evior',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'momspace',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'  => true,                    // Show admin notices or not.

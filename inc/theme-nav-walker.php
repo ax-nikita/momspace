@@ -14,8 +14,8 @@
  *
  * @see Walker
  */
-if (!class_exists('EviorNavWalker')) {
-    class EviorNavWalker extends Walker_Nav_Menu
+if (!class_exists('momspaceNavWalker')) {
+    class momspaceNavWalker extends Walker_Nav_Menu
     {
         /**
          * What the class handles.
@@ -64,7 +64,7 @@ if (!class_exists('EviorNavWalker')) {
             $indent = str_repeat($t, $depth);
 
             // Default class.
-            $classes = array('evior-submenu');
+            $classes = array('momspace-submenu');
 
             /**
              * Filters the CSS class(es) applied to a menu list element.
@@ -131,18 +131,18 @@ if (!class_exists('EviorNavWalker')) {
 			
             if( class_exists( 'CSF' ) ) {
 				
-				$enable_mega_menu =  get_post_meta( $item->ID, 'eviornav', true );
-				$mega_menu_template = get_post_meta( $item->ID, 'eviornav', true );
+				$enable_mega_menu =  get_post_meta( $item->ID, 'momspacenav', true );
+				$mega_menu_template = get_post_meta( $item->ID, 'momspacenav', true );
 				
                 //$enable_mega_menu = get_field('enable_mega_menu', $item);
                 //$mega_menu_template = get_field('select_megamenu_template', $item);
 				
-				//$meta = get_term_meta($category->term_id, 'evior', true);
-				//$evior_nav_style =  get_post_meta( get_the_ID(), 'evior_post_meta', true );
-				//$meta = get_post_meta( $item->ID, 'eviornav', true );
+				//$meta = get_term_meta($category->term_id, 'momspace', true);
+				//$momspace_nav_style =  get_post_meta( get_the_ID(), 'momspace_post_meta', true );
+				//$meta = get_post_meta( $item->ID, 'momspacenav', true );
 				
-//$evior_cat_style = get_term_meta( get_queried_object_id(), 'evior', true );
-//$evior_cat_style_template = !empty( $evior_cat_style['evior_cat_layout'] )? $evior_cat_style['evior_cat_layout'] : '';
+//$momspace_cat_style = get_term_meta( get_queried_object_id(), 'momspace', true );
+//$momspace_cat_style_template = !empty( $momspace_cat_style['momspace_cat_layout'] )? $momspace_cat_style['momspace_cat_layout'] : '';
 
 				
             }
@@ -164,7 +164,7 @@ if (!class_exists('EviorNavWalker')) {
             $mega_parent_class = ( true == $enable_mega_menu ) ? 'megamenu-wrapper' : '' ;
 
 
-            $post_type_class = 'evior-post-type-' . get_post_type( get_the_ID() );
+            $post_type_class = 'momspace-post-type-' . get_post_type( get_the_ID() );
 
 
             if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
@@ -354,5 +354,5 @@ if (!class_exists('EviorNavWalker')) {
             $output .= "</li>{$n}";
         }
 
-    } // EviorNavWalker
+    } // momspaceNavWalker
 }

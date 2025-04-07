@@ -13,7 +13,7 @@
 			the_content();
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'evior' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'momspace' ),
 				'after'  => '</div>',
 			) );
 		?>	

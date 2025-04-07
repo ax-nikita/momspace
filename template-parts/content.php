@@ -1,6 +1,6 @@
 <?php 
 
-$excerpt_limit = evior_get_option('excerpt_limit');
+$excerpt_limit = momspace_get_option('excerpt_limit');
 
 ?>
 
@@ -17,7 +17,7 @@ $excerpt_limit = evior_get_option('excerpt_limit');
 		<div class="post-list-medium-content">
 		
 			<div class="category-box">
-				<?php require EVIOR_THEME_DIR . '/template-parts/cat-color.php'; ?>
+				<?php require MOMSPACE_THEME_DIR . '/template-parts/cat-color.php'; ?>
 			</div>
 	
 			<h3 class="post-title">
@@ -38,8 +38,8 @@ $excerpt_limit = evior_get_option('excerpt_limit');
 				</div>
 				
 				<div class="post_number__Comment">
-					<a class="evior-comment" href="<?php echo esc_url( get_comments_link() ); ?>">
-						<?php printf( esc_html( _nx( 'Comments (%1$s)', 'Comments (%1$s)', get_comments_number(), 'comments title', 'evior' ) ), '<span class="comment">'.number_format_i18n( get_comments_number() ).'</span>','<span>' . get_the_title() . '</span>' ); ?>
+					<a class="momspace-comment" href="<?php echo esc_url( get_comments_link() ); ?>">
+						<?php printf( esc_html( _nx( 'Comments (%1$s)', 'Comments (%1$s)', get_comments_number(), 'comments title', 'momspace' ) ), '<span class="comment">'.number_format_i18n( get_comments_number() ).'</span>','<span>' . get_the_title() . '</span>' ); ?>
 					</a>
 				</div>
 				
@@ -47,7 +47,7 @@ $excerpt_limit = evior_get_option('excerpt_limit');
 			
 			<div class="cat-read-more-btn">
 				
-				<?php echo '<div style="clear:both"></div><a href="' . esc_url( get_permalink() ) . '" class="read_more_Btutton">'.esc_html__('Читать подробнее', 'evior').'<i class="icofont-long-arrow-right"></i></a>'; ?>
+				<?php echo '<div style="clear:both"></div><a href="' . esc_url( get_permalink() ) . '" class="read_more_Btutton">'.esc_html__('Читать подробнее', 'momspace').'<i class="icofont-long-arrow-right"></i></a>'; ?>
 				
 			</div>
 		</div>

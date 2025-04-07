@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( evior_get_shop_layout() === 'no-sidebar' ) {
+if ( momspace_get_shop_layout() === 'no-sidebar' ) {
 	return;
 }
 

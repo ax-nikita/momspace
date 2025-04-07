@@ -14,7 +14,7 @@
     if( $relatedposts ) : 
 
     echo '<div class="theme_related_post_Grid">';
-    echo '<h2>'.esc_html__( 'Похожие записи', 'evior' ).'</h2>';
+    echo '<h2>'.esc_html__( 'Похожие записи', 'momspace' ).'</h2>';
 	
     echo '<div class="theme_post_grid__Slider_Wrapperr">';
 	echo '<div class="theme_post_grid__Slider related-posts-slider row">';
@@ -58,7 +58,7 @@
 		<div class="post-meta-items">
 
 			<div class="category-box">
-				<?php require EVIOR_THEME_DIR . '/template-parts/cat-color.php'; ?>
+				<?php require MOMSPACE_THEME_DIR . '/template-parts/cat-color.php'; ?>
 			</div>
 
 			<div class="date-box">
@@ -66,7 +66,7 @@
 			</div>
 
 			<div class="read-time-box">
-				<?php echo evior_reading_time(); ?>
+				<?php echo momspace_reading_time(); ?>
 			</div>
 
 		

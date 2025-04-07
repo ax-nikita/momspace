@@ -2,7 +2,7 @@
 
 /*
  * Theme Customize Options
- * @package evior
+ * @package momspace
  * @since 1.0.0
  * */
 
@@ -11,7 +11,7 @@ if ( !defined('ABSPATH') ){
 }
 
 if (class_exists('CSF') ){
-	$prefix = 'evior';
+	$prefix = 'momspace';
 
 	CSF::createCustomizeOptions($prefix.'_customize_options');
 
@@ -21,26 +21,26 @@ if (class_exists('CSF') ){
      -------------------------------------*/
     CSF::createSection($prefix . '_customize_options', array(
 		'id' => 'theme_settings', // Set a unique slug-like ID
-        'title' => esc_html__('Evior Color Settings', 'evior') ,
+        'title' => esc_html__('momspace Color Settings', 'momspace') ,
         'priority' => 10,
         'fields' => array(
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Choose Theme Color', 'evior') . '</h3>',
+                'content' => '<h3>' . esc_html__('Choose Theme Color', 'momspace') . '</h3>',
             ) ,
 
             array(
                 'id' => 'theme_main_color',
                 'type' => 'color',
-                'title' => esc_html__('Theme Main Color', 'evior') ,
+                'title' => esc_html__('Theme Main Color', 'momspace') ,
                 'default' => '#FF3524',
             ) ,
 
             array(
                 'id' => 'theme_body_bg',
                 'type' => 'color',
-                'title' => esc_html__('Body Background Color', 'evior') ,
+                'title' => esc_html__('Body Background Color', 'momspace') ,
                 'default' => '#fff',
 				'output'      => 'body',
 				'output_mode' => 'background-color'
@@ -50,7 +50,7 @@ if (class_exists('CSF') ){
             array(
                 'id' => 'theme_body_text',
                 'type' => 'color',
-                'title' => esc_html__('Body Text Color', 'evior') ,
+                'title' => esc_html__('Body Text Color', 'momspace') ,
                 'default' => '#555555',
 				'output'      => 'body',
 				'output_mode' => 'color'
@@ -59,7 +59,7 @@ if (class_exists('CSF') ){
 			array(
                 'id' => 'preloader_bg',
                 'type' => 'color',
-                'title' => esc_html__('Preloader Background Color', 'evior') ,
+                'title' => esc_html__('Preloader Background Color', 'momspace') ,
                 'default' => '#FF3524',
 				'output'      => '#preloader',
 				'output_mode' => 'background',
@@ -69,7 +69,7 @@ if (class_exists('CSF') ){
 			array(
                 'id' => 'back_btn_bg',
                 'type' => 'color',
-                'title' => esc_html__('Back To Top Button Background Color', 'evior') ,
+                'title' => esc_html__('Back To Top Button Background Color', 'momspace') ,
                 'default' => '#FF3524',
 				'output'      => '.backto',
 				'output_mode' => 'background-color',
@@ -79,13 +79,13 @@ if (class_exists('CSF') ){
 
             array(
                 'type' => 'subheading',
-                'content' => '<h3>' . esc_html__('Footer', 'evior') . '</h3>'
+                'content' => '<h3>' . esc_html__('Footer', 'momspace') . '</h3>'
             ) ,
 
             array(
                 'id' => 'footer_bg',
                 'type' => 'color',
-                'title' => esc_html__('Footer Background Color', 'evior') ,
+                'title' => esc_html__('Footer Background Color', 'momspace') ,
                 'default' => '#F5F5F5',
 				'output'      => '.theme_footer_Widegts',
             ) ,

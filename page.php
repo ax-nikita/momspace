@@ -9,14 +9,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evior
+ * @package momspace
  */
 
 get_header(); 
 
 
-if(get_post_meta($post->ID, 'evior_post_meta', true)) {
-    $page_meta = get_post_meta($post->ID, 'evior_post_meta', true);
+if(get_post_meta($post->ID, 'momspace_post_meta', true)) {
+    $page_meta = get_post_meta($post->ID, 'momspace_post_meta', true);
 } else {
     $page_meta = array();
 }

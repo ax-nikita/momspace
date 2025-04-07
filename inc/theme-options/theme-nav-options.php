@@ -1,7 +1,7 @@
 <?php
 /*
  * Theme Nav Options
- * @package Evior
+ * @package momspace
  * @since 1.0.0
  * */
 
@@ -15,7 +15,7 @@ if( class_exists( 'CSF' ) ) {
 
   //
   // Set a unique slug-like ID
-  $prefix = 'eviornav';
+  $prefix = 'momspacenav';
 
   //
   // Create profile options
@@ -30,7 +30,7 @@ if( class_exists( 'CSF' ) ) {
 	
 	array(
 		'id' => 'enable_mega_menu',
-		'title' => esc_html__('Enable Mega Menu','evior'),
+		'title' => esc_html__('Enable Mega Menu','momspace'),
 		'type' => 'switcher',
 		'default' => false,
 	),

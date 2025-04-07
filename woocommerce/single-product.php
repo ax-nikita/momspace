@@ -27,7 +27,7 @@ get_header( 'shop' ); ?>
         <div class="row justify-content-center">
             <div class="col-md-12">
 				<h1 class="theme-breacrumb-title">
-					<?php echo esc_html__('Porduct Details', 'evior'); ?>
+					<?php echo esc_html__('Porduct Details', 'momspace'); ?>
 				</h1>
 				<div class="breaccrumb-inner">
 					<?php 

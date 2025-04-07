@@ -1,12 +1,16 @@
 /*
-Theme Name: Evior
-Theme URI: http://gossipthemes.com/evior
-Author: Gossip Themes
-Author URI: http://gossipthemes.com
-Description: Modern Magazine WordPress Theme
-Version: 2.0
+Theme Name: Mom Space
+Theme URI: https://github.com/ax-nikita/momspace
+Author: ax-nikita
+Author URI: https://github.com/ax-nikita
+Description: Custom theme
+Version: 0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: evior
+Text Domain: momspace
 Tags: two-columns, three-columns, four-columns, right-sidebar, custom-menu, featured-images, full-width-template
 */
+
+
+
+

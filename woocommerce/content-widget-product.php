@@ -27,13 +27,13 @@ if ( ! is_a( $product, 'WC_Product' ) ) {
 ?>
 <li>
 	<?php do_action( 'woocommerce_widget_product_item_start', $args ); ?>
-	<div class="evior-product-widget-thumbnail">
+	<div class="momspace-product-widget-thumbnail">
 		<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
 			<?php echo $product->get_image(); // PHPCS:Ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>		
 		</a>
 	</div>
 	
-	<div class="evior-product-widget-content">		
+	<div class="momspace-product-widget-content">		
 		<span class="product-title"><a href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo wp_kses_post( $product->get_name() ); ?></a></span>
 		
 		<?php if ( ! empty( $show_rating ) ) : ?>

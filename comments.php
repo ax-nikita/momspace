@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package evior
+ * @package momspace
  */
  
 /*
@@ -32,9 +32,9 @@ if ( post_password_required() ) {
         <h3 class="comment-num">
 			<?php
 			if(get_comments_number()>1){
-				printf( '%1$s ' . esc_html__( 'Comments ', 'evior' ), get_comments_number() );
+				printf( '%1$s ' . esc_html__( 'Comments ', 'momspace' ), get_comments_number() );
 			}else{
-				printf( '%1$s ' . esc_html__( 'Comment ', 'evior' ), get_comments_number() );
+				printf( '%1$s ' . esc_html__( 'Comment ', 'momspace' ), get_comments_number() );
 
 			}
 			?>
@@ -45,13 +45,13 @@ if ( post_password_required() ) {
 			<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
 
 				<h1 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'evior' ); ?>
+					<?php esc_html_e( 'Comment navigation', 'momspace' ); ?>
 				</h1>
 				<div class="nav-previous">
-					<?php previous_comments_link( esc_html__( '← Older Comments', 'evior' ) ); ?>
+					<?php previous_comments_link( esc_html__( '← Older Comments', 'momspace' ) ); ?>
 				</div>
 				<div class="nav-next">
-					<?php next_comments_link( esc_html__( 'Newer Comments →', 'evior' ) ); ?>
+					<?php next_comments_link( esc_html__( 'Newer Comments →', 'momspace' ) ); ?>
 				</div>
 			
 			</nav><!-- #comment-nav-above -->
@@ -61,7 +61,7 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments( array(
 			       'reply_text'        => '<i class="fa fa-mail-reply-all"></i> Reply',
-				    'callback'          => 'evior_comment_style',
+				    'callback'          => 'momspace_comment_style',
 				    'style'			 => 'ul',
 				    'short_ping'	 => false,
 				    'type'              => 'all',
@@ -75,20 +75,20 @@ if ( post_password_required() ) {
 			<nav id="comment-nav-bellow" class="navigation comment-navigation" role="navigation">
 
 				<h1 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'evior' ); ?>
+					<?php esc_html_e( 'Comment navigation', 'momspace' ); ?>
 				</h1>
 				<div class="nav-previous">
-					<?php previous_comments_link( esc_html__( '← Older Comments', 'evior' ) ); ?>
+					<?php previous_comments_link( esc_html__( '← Older Comments', 'momspace' ) ); ?>
 				</div>
 				<div class="nav-next">
-					<?php next_comments_link( esc_html__( 'Newer Comments →', 'evior' ) ); ?>
+					<?php next_comments_link( esc_html__( 'Newer Comments →', 'momspace' ) ); ?>
 				</div>
 			
 			</nav><!-- #comment-nav-bellow -->
 		<?php endif; //check for comment navigation ?>
 
 		<?php if ( !comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'evior' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'momspace' ); ?></p>
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>
@@ -109,9 +109,9 @@ if ( post_password_required() ) {
 	$aria_req	 = ( $req ? " aria-required='true'" : '' );
 
 	$fields = array(
-		'author' => '<div class="comment-info row"><div class="col-md-6"><input placeholder="'.  esc_attr__('Enter Name', 'evior').'" id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter[ 'comment_author' ] ) . '" size="30"' . $aria_req . ' /></div><div class="col-md-6">',
-		'email'	 => '<input placeholder="'.  esc_attr__('Enter Email', 'evior').'" id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter[ 'comment_author_email' ] ) . '" size="30"' . $aria_req . ' /></div>',
-		'url'	 => '<div class="col-md-12"><input placeholder="'.  esc_attr__('Enter Website', 'evior').'" id="url" name="url" class="form-control" type="url" value="' . esc_attr( $commenter[ 'comment_author_url' ] ) . '" size="30" /></div></div>',
+		'author' => '<div class="comment-info row"><div class="col-md-6"><input placeholder="'.  esc_attr__('Enter Name', 'momspace').'" id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter[ 'comment_author' ] ) . '" size="30"' . $aria_req . ' /></div><div class="col-md-6">',
+		'email'	 => '<input placeholder="'.  esc_attr__('Enter Email', 'momspace').'" id="email" name="email" class="form-control" type="email" value="' . esc_attr( $commenter[ 'comment_author_email' ] ) . '" size="30"' . $aria_req . ' /></div>',
+		'url'	 => '<div class="col-md-12"><input placeholder="'.  esc_attr__('Enter Website', 'momspace').'" id="url" name="url" class="form-control" type="url" value="' . esc_attr( $commenter[ 'comment_author_url' ] ) . '" size="30" /></div></div>',
 	);
 
 	if ( is_user_logged_in() ) {
@@ -124,7 +124,7 @@ if ( post_password_required() ) {
 		'comment_field'		 => '
 			<div class="row">
 				<div class="col-md-12 ' . $cl . '">
-					<textarea class="form-control msg-box" placeholder="'.  esc_attr__('Enter Comments', 'evior').'" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+					<textarea class="form-control msg-box" placeholder="'.  esc_attr__('Enter Comments', 'momspace').'" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -132,20 +132,20 @@ if ( post_password_required() ) {
 		/** This filter is documented in wp-includes/link-template.php */
 		'must_log_in'		 => '
 			<p class="must-log-in">
-			'.esc_html__('You must be','evior').' <a href="'.esc_url(wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )).'">'.esc_html__('logged in','evior').'</a> '.esc_html__('to post a comment.','evior').'
+			'.esc_html__('You must be','momspace').' <a href="'.esc_url(wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )).'">'.esc_html__('logged in','momspace').'</a> '.esc_html__('to post a comment.','momspace').'
 			</p>',
 		/** This filter is documented in wp-includes/link-template.php */
 		'logged_in_as'		 => '
 			<p class="logged-in-as">
-			'.esc_html__('Logged in as','evior').' <a href="'.esc_url(get_edit_user_link()).'">'.esc_html($user_identity).'</a>. <a href="'.esc_url(wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )).'" title="'.esc_attr__('Log out of this account','evior').'">'.esc_html__('Log out?','evior').'</a>
+			'.esc_html__('Logged in as','momspace').' <a href="'.esc_url(get_edit_user_link()).'">'.esc_html($user_identity).'</a>. <a href="'.esc_url(wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) )).'" title="'.esc_attr__('Log out of this account','momspace').'">'.esc_html__('Log out?','momspace').'</a>
 			</p>',
 		'id_form'			 => 'commentform',
 		'id_submit'			 => 'submit',
 		'class_submit'		 => 'btn-comments btn btn-primary',
-		'title_reply'		 => esc_html__( 'Leave a Reply', 'evior' ),
-		'title_reply_to'	 => esc_html__( 'Leave a Reply to %s', 'evior' ),
-		'cancel_reply_link'	 => esc_html__( 'Cancel reply', 'evior' ),
-		'label_submit'		 => esc_html__( 'Отправить', 'evior' ),
+		'title_reply'		 => esc_html__( 'Leave a Reply', 'momspace' ),
+		'title_reply_to'	 => esc_html__( 'Leave a Reply to %s', 'momspace' ),
+		'cancel_reply_link'	 => esc_html__( 'Cancel reply', 'momspace' ),
+		'label_submit'		 => esc_html__( 'Отправить', 'momspace' ),
 		'format'			 => 'xhtml',
 	];
 

@@ -1,11 +1,11 @@
 <?php 
 
-$blog_single_cat = evior_get_option('blog_single_cat');
-$blog_single_author= evior_get_option('blog_single_author', false);
-$blog_single_navigation = evior_get_option('blog_nav');
-$blog_single_related = evior_get_option('blog_related');
-$blog_single_taglist = evior_get_option('blog_tags');
-$blog_single_views = evior_get_option('blog_views');
+$blog_single_cat = momspace_get_option('blog_single_cat');
+$blog_single_author= momspace_get_option('blog_single_author', false);
+$blog_single_navigation = momspace_get_option('blog_nav');
+$blog_single_related = momspace_get_option('blog_related');
+$blog_single_taglist = momspace_get_option('blog_tags');
+$blog_single_views = momspace_get_option('blog_views');
 
 ?>
 
@@ -29,7 +29,7 @@ $blog_single_views = evior_get_option('blog_views');
 						
 						<?php if($blog_single_cat == true) :?>
 						<div class="blog-post-cat sblog_catt_design">
-						<?php require EVIOR_THEME_DIR . '/template-parts/cat-color.php'; ?>
+						<?php require MOMSPACE_THEME_DIR . '/template-parts/cat-color.php'; ?>
 						</div>
 						<?php endif; ?>	
 						
@@ -51,13 +51,13 @@ $blog_single_views = evior_get_option('blog_views');
 									<ul class="single-top-meta-list">
 										<li class="blog_details__Date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></li>
 										
-										<li class="blog_details__Readtime"><?php echo evior_reading_time(); ?></li>
+										<li class="blog_details__Readtime"><?php echo momspace_reading_time(); ?></li>
 										
 										<?php if($blog_single_views == true) :?>
 										
 										<li class="blog_details__Views">
-										<?php evior_set_post_view();?>
-										<?php echo evior_get_post_view(); ?><?php esc_html_e(' Views', 'evior'); ?>
+										<?php momspace_set_post_view();?>
+										<?php echo momspace_get_post_view(); ?><?php esc_html_e(' Views', 'momspace'); ?>
 										</li>
 										
 										<?php endif; ?>
@@ -97,13 +97,13 @@ $blog_single_views = evior_get_option('blog_views');
 							the_excerpt();
 						} else {
 							the_content();
-							evior_link_pages();
+							momspace_link_pages();
 						}
 						?>
 						
 					<?php if(has_tag() && $blog_single_taglist == true ) : ?>
 					<div class="post-footer clearfix theme-tag-list-wrapp">
-						<?php evior_single_post_tags(); ?>
+						<?php momspace_single_post_tags(); ?>
 					</div>
 					 
 					<?php endif; ?>	
@@ -116,11 +116,11 @@ $blog_single_views = evior_get_option('blog_views');
 			</article>
 					   
 				<?php if($blog_single_author == true) :?>
-					<?php evior_theme_author_box(); ?>
+					<?php momspace_theme_author_box(); ?>
 				<?php endif; ?>
 			   
 				<?php if($blog_single_navigation == true) :?>
-					<?php evior_theme_post_navigation(); ?>
+					<?php momspace_theme_post_navigation(); ?>
 				<?php endif; ?>
 
 				<?php comments_template(); ?>

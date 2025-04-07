@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package evior
+ * @package momspace
  */
  
 get_header();
@@ -17,7 +17,7 @@ get_header();
             <div class="row justify-content-center">
                 <div class="col-md-12">
 					<h1 class="theme-breacrumb-title">
-						<?php printf(esc_html__('Search Results for: %s', 'evior') , get_search_query()); ?>
+						<?php printf(esc_html__('Search Results for: %s', 'momspace') , get_search_query()); ?>
 					</h1>
 					<div class="breaccrumb-inner">
 						<?php 

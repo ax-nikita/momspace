@@ -7,7 +7,7 @@ $theme_post_meta_video = isset($theme_video_meta['textm']) && !empty($theme_vide
 ?>
 
 <?php 
-	$video_url = evior_video_embed($theme_post_meta_video);
+	$video_url = momspace_video_embed($theme_post_meta_video);
 ?>
 
 <div class="embed-responsive embed-responsive-16by9">
