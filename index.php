@@ -12,17 +12,12 @@
  * @package momspace
  */
 
-$blog_title = momspace_get_option('blog_title', true);
-$blog_breadcrumb = momspace_get_option('blog_breadcrumb_enable', true);
-
 get_header();
 
 ?>
-
-<main>
     <div>
         <div class="row simple-box">
-            <div class="swiper">
+            <div class="swiper" swiper="true">
                 <div class="swiper-wrapper simple-box__flex-list padding-top-0 gap-0">
                     <div class="illustration-box swiper-slide">
                         <a href="#">
@@ -546,6 +541,6 @@ get_header();
             </div>
         </div>
     </div>
-</main>
+
 	
 	<?php get_footer(); ?>

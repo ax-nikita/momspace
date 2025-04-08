@@ -4,34 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-$momspace_logo = momspace_get_option( 'theme_logo' );
-$momspace_logo_id = isset($momspace_logo['id']) && !empty($momspace_logo['id']) ? $momspace_logo['id'] : '';
-$momspace_logo_url = isset( $momspace_logo[ 'url' ] ) ? $momspace_logo[ 'url' ] : '';
-$momspace_logo_alt = get_post_meta($momspace_logo_id,'_wp_attachment_image_alt',true);
-
-$header_top_promo = momspace_get_option('header_top_promo');
-$promo_title = momspace_get_option('promo_title');
-$promo_text = momspace_get_option('promo_text');
-$promo_text_btn = momspace_get_option('promo_text_btn');
-$promo_btn_link = momspace_get_option('promo_btn_link');
-
-$momspace_header_top = momspace_get_option('header_top_enable');
-$header_date = momspace_get_option('header_top_calender');
-$header_weather = momspace_get_option('header_top_weather');
-$waether_text = momspace_get_option('waether_text');
-
-$momspace_header_search = momspace_get_option('search_bar_enable', true);
-$login_btn_enable = momspace_get_option('login_btn_enable');
-$register_btn_enable = momspace_get_option('register_btn_enable');
-
-$momspace_header_social = momspace_get_option('header_social_enable');
-$momspace_social_icon = momspace_get_option( 'social-icon' );
-
-$top_text_btn_enable = momspace_get_option('top_text_btn_enable');
-$top_text_btn = momspace_get_option('top_text_btn');
-$top_text_btn_link = momspace_get_option('top_text_btn_link');
-
-
 ?>
 
 <header>
@@ -47,7 +19,7 @@ $top_text_btn_link = momspace_get_option('top_text_btn_link');
                 </svg>
             </label>
             <div class="logo-box">
-                <a href="#" class="logo">
+                <a href="/" class="logo" spa>
                     <svg width="210" height="60" viewBox="0 0 210 60" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M32.8738 46.5505C32.1595 46.5505 31.4563 46.3075 30.8954 45.8682C29.176 44.5194 23.5551 39.7686 23.4016 35.2596C23.3476 33.6592 23.9748 32.2564 25.2683 31.0917C25.8157 30.5984 26.5521 30.3382 27.3989 30.3382C28.3905 30.3382 29.4521 30.7015 30.2388 31.3114C30.9163 31.8355 31.4612 32.5019 31.9852 33.453C32.7474 31.9864 34.5711 30.5076 36.2795 30.5076C36.6476 30.5076 37.0048 30.5738 37.3398 30.7027C38.68 31.2218 39.5612 32.3325 39.8877 33.9133C40.5872 37.3067 38.5818 42.2366 35.1197 45.6362C34.5183 46.2265 33.7206 46.553 32.875 46.553L32.8738 46.5505Z"
@@ -404,7 +376,7 @@ $top_text_btn_link = momspace_get_option('top_text_btn_link');
             <div class="collapse navbar-collapse" id="navbarNav">
                 <?php
                 wp_nav_menu(array(
-                    'theme_location' => 'primary',
+                    'theme_location' => 'header-top',
                     'container' => false, // Убираем контейнер
                     'menu_class' => 'navbar-nav navbar-light', // Класс для ul
                     'items_wrap' => '<ul class="%2$s">%3$s</ul>', // Форматирование ul
@@ -419,7 +391,7 @@ $top_text_btn_link = momspace_get_option('top_text_btn_link');
                     <div class="collapse navbar-collapse">
                         <?php
                             wp_nav_menu(array(
-                                'theme_location' => 'primary-bottom',
+                                'theme_location' => 'header-bottom',
                                 'container' => false, // Убираем контейнер
                                 'menu_class' => 'navbar-nav', // Класс для ul
                                 'items_wrap' => '<ul class="%2$s">%3$s</ul>', // Форматирование ul
@@ -432,3 +404,4 @@ $top_text_btn_link = momspace_get_option('top_text_btn_link');
         </div>
     </div>
 </header>
+<main>

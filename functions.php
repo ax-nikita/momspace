@@ -49,6 +49,13 @@ define('MOMSPACE_THEME_OPTIONS_IMG',MOMSPACE_THEME_OPTIONS .'/img');
 define('MOMSPACE_SVG', MOMSPACE_THEME_DIR . '/inc');
 define('MOMSPACE_THEME_SVG',MOMSPACE_IMG_DIR .'/svg');
 
+if ( ! function_exists( 'momspace_get_option' ) ) {
+    function momspace_get_option( $option = '', $default = null ) {
+        $options = get_option( 'momspace_theme_options' ); // Attention: Set your unique id of the framework
+        return ( isset( $options[$option] ) ) ? $options[$option] : $default;
+    }
+}
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -222,14 +229,16 @@ function my_custom_theme_scripts() {
 
     // Подключаем ваш JS файл
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array('jquery'), null, true);
+
+    wp_enqueue_script('axnikitaJS', get_template_directory_uri() . '/assets/js/axnikitaJS.js', [], null, true);
 }
 add_action('wp_enqueue_scripts', 'my_custom_theme_scripts');
 
 function register_my_menus() {
     register_nav_menus(
         array(
-            'header-menu' => esc_html__('Header Menu', 'momspace'),
-            'primary-bottom' => esc_html__('Header Bottom Menu', 'momspace'),
+            'header-top' => esc_html__('Header Menu', 'momspace'),
+            'header-bottom' => esc_html__('Header Bottom Menu', 'momspace'),
             'footer-menu-sections' => esc_html__('Footer Sections', 'momspace'),
             'footer-menu-articles' => esc_html__('Footer Articles', 'momspace'),
             'footer-menu-development' => esc_html__('Footer Development', 'momspace'),
@@ -260,6 +269,7 @@ add_filter('nav_menu_css_class', 'add_custom_classes', 10, 2);
 function add_link_class($atts, $item, $args) {
     // Добавляем класс nav-link к каждой ссылке
     $atts['class'] =  $args->item_class . ' nav-link';
+    $atts['spa'] = 'true';
 
     // Проверяем, есть ли подменю
     if (in_array('menu-item-has-children', $item->classes)) {
@@ -271,7 +281,7 @@ function add_link_class($atts, $item, $args) {
 add_filter('nav_menu_link_attributes', 'add_link_class', 10, 3);
 
 function custom_wp_nav_menu($items, $args) {
-    if ($args->theme_location == 'primary') {
+    if ($args->theme_location == 'header-top') {
         // Добавляем элемент с иконкой "sandwich" только в начале
         $sandwich_icon = '<li class="nav-item"><label class="sandwich" for="open-nav-menu">
                             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="27" viewBox="0 0 38 27" fill="none">
@@ -282,7 +292,6 @@ function custom_wp_nav_menu($items, $args) {
                         </label></li>';
 
         // Объединяем иконку с остальными элементами меню
-
 
         $items = $sandwich_icon . $items;
 
@@ -304,6 +313,24 @@ function add_dropdown_classes($output, $item, $depth, $args) {
     return $output;
 }
 add_filter('walker_nav_menu_start_el', 'add_dropdown_classes', 10, 4);
+
+function modify_nav_menu_links($items, $args) {
+    // Проверяем, что это нужное меню (можно указать имя или ID меню)
+    // Например, если у вас меню с именем 'primary', используйте:
+    // if ($args->theme_location == 'primary') {
+
+    // Заменяем ссылки, содержащие "СЕРВИС"
+    $pattern = '/<a([^>]*)>(.*?) СЕРВИС<\/a>/i';
+    $replacement = '<a$1 service>$2</a>';
+
+    // Выполняем замену
+    $items = preg_replace($pattern, $replacement, $items);
+
+    return $items;
+}
+
+// Применяем функцию к меню
+add_filter('wp_nav_menu_items', 'modify_nav_menu_links', 10, 2);
 
 /*
 * Include codester helper functions
@@ -337,32 +364,6 @@ if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-customizer.php' ) ) {
 if ( file_exists( MOMSPACE_THEME_OPTIONS.'/theme-inline-styles.php' ) ) {
     require_once  MOMSPACE_THEME_OPTIONS.'/theme-inline-styles.php';
 }
-
-
-/**
- * Required plugin installer
- */
-require get_template_directory() . '/inc/required-plugins.php';
-
-
-/**
- * Custom template tags & functions for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Nav walker class for this theme.
- */
-require get_template_directory() . '/inc/theme-nav-walker.php';
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'woocommerce' ) ) {
-    require get_template_directory() . '/inc/woocommerce.php';
-}
-
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -637,7 +638,7 @@ function custom_rewrite_rules() {
     if (preg_match('/^\/assets\/images\/svg\/(.*)$/', $_SERVER['REQUEST_URI'], $matches)) {
         $image_path = get_template_directory() . '/assets/images/svg/' . $matches[1];
         if (file_exists($image_path)) {
-            header('Content-Type: image/svg+xml'); // Убедитесь, что тип контента соответствует вашему изображению
+            header('Content-Type: image/svg+xml');
             readfile($image_path);
             exit;
         }
@@ -646,7 +647,16 @@ function custom_rewrite_rules() {
     if (preg_match('/^\/assets\/images\/(.*)$/', $_SERVER['REQUEST_URI'], $matches)) {
         $image_path = get_template_directory() . '/assets/images/' . $matches[1];
         if (file_exists($image_path)) {
-            header('Content-Type: image/png'); // Убедитесь, что тип контента соответствует вашему изображению
+            header('Content-Type: image/png');
+            readfile($image_path);
+            exit;
+        }
+    }
+
+    if (preg_match('/^\/assets\/js\/(.*)$/', $_SERVER['REQUEST_URI'], $matches)) {
+        $image_path = get_template_directory() . '/assets/js/' . $matches[1];
+        if (file_exists($image_path)) {
+            header('Content-Type: application/javascript');
             readfile($image_path);
             exit;
         }

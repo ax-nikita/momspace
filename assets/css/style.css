@@ -186,6 +186,7 @@ body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-track {
   justify-items: center;
   gap: 21px;
   color: inherit;
+  padding-top: 0.5rem;
   transition: 0.2s;
 }
 .illustration-box a > div {
@@ -211,7 +212,7 @@ body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-track {
   border: 1px solid var(--theme-llgray);
 }
 .illustration-box a:hover {
-  transform: scale(1.05);
+  transform: scale(1.05, 1.03);
 }
 
 @media (max-width: 1400px) {
@@ -1111,8 +1112,12 @@ a.pink-arrow:after {
   }
 }
 .content-wrapper {
+  display: grid;
+  grid-template-rows: min-content auto max-content;
+  grid-template-columns: 100%;
   background: var(--theme-white);
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 input::placeholder {
@@ -1255,12 +1260,26 @@ header .middle .navbar-nav .nav-item a {
   padding: 8px 0 15px 0;
   transition: 0.2s;
 }
+header .middle .navbar-nav .nav-item a:not(.dropdown-toggle) {
+  padding: 14px 0 13px 0;
+}
+header .middle .navbar-nav .nav-item a[href="#"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+header .middle .navbar-nav .nav-item a[service]:after {
+  content: "сервис";
+  font-size: 0.65em;
+  color: var(--theme-pink);
+  position: relative;
+  font-weight: 600;
+  bottom: 0.5rem;
+}
 header .middle .navbar-nav .nav-item.active > ul.dropdown-menu {
   display: block !important;
 }
 header .middle .navbar-nav .nav-item ul.dropdown-menu {
   display: none;
-  position: absolute;
   background: var(--theme-white);
   left: -32px;
   border: none;
@@ -1269,18 +1288,26 @@ header .middle .navbar-nav .nav-item ul.dropdown-menu {
   padding: 10px 33px;
   z-index: 50;
 }
+header .middle .navbar-nav .nav-item ul.dropdown-menu a {
+  font-size: 1em;
+}
 header .middle .navbar-nav .nav-item a:hover {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 2rem;
-  color: var(--theme-black);
-  text-shadow: 0 0 5px var(--theme-lpink);
-  transform: scale(1.04);
+  color: var(--theme-pink);
+}
+header .middle .navbar-nav .nav-item.active > a {
+  height: max-content;
 }
 header .middle .navbar-nav .nav-item.active .dropdown-toggle::after {
   transform: rotate(180deg);
   left: 3px;
   bottom: -46px;
+}
+header .middle .navbar-nav .nav-item:last-child ul.dropdown-menu {
+  left: auto;
+  right: -32px;
 }
 header .middle .navbar-nav .nav-link {
   width: 100%;
@@ -1298,7 +1325,7 @@ header .middle .navbar-nav .dropdown-toggle::after {
   border: 0;
   left: -7px;
   bottom: -3px;
-  transition: 0.2s;
+  transition: 0s;
 }
 header .middle .menu-item-has-children {
   position: relative;
@@ -1480,6 +1507,7 @@ header .bottom .navbar-nav .nav-link {
     left: 0;
     box-shadow: 0 0 0 #000 !important;
     padding: 0px 2rem !important;
+    font-size: 1.5rem;
   }
   header .middle .dropdown-toggle::after {
     margin-left: 12px;

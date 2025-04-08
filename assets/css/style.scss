@@ -214,6 +214,7 @@ body {
   justify-items: center;
   gap: 21px;
   color: inherit;
+  padding-top: 0.5rem;
   & > div {
     width: 264px;
     height: 279px;
@@ -226,7 +227,6 @@ body {
       width: 100%;
       object-fit: contain;
     }
-
   }
   span {
     display: grid;
@@ -239,7 +239,7 @@ body {
   }
   transition: 0.2s;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05, 1.03);
   }
 }
 
@@ -1134,6 +1134,7 @@ a.pink-arrow {
 }
 
 .footer {
+
   display: grid;
   grid-template-areas:
     "sections articles development сontact-btn"
@@ -1289,8 +1290,12 @@ a.pink-arrow {
 }
 
 .content-wrapper {
+  display: grid;
+  grid-template-rows: min-content auto max-content;
+  grid-template-columns: 100%;
   background: var(--theme-white);
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 input {
@@ -1454,13 +1459,30 @@ header {
         a {
           padding: 8px 0 15px 0;
           transition: 0.2s;
+          &:not(.dropdown-toggle) {
+            padding: 14px 0 13px 0;
+          }
+          &[href='#'] {
+            opacity: .5;
+            pointer-events: none;
+          }
+          &[service] {
+            &:after {
+              content: 'сервис';
+              font-size: 0.65em;
+              color: var(--theme-pink);
+              position: relative;
+              font-weight: 600;
+              bottom: 0.5rem;
+            }
+          }
         }
         &.active > ul.dropdown-menu {
           display: block !important;
         }
+
         ul.dropdown-menu {
           display: none;
-          position: absolute;
           background: var(--theme-white);
           left: -32px;
           border: none;
@@ -1468,20 +1490,31 @@ header {
           box-shadow: 0 12px 16px #0003;
           padding: 10px 33px;
           z-index: 50;
+          a {
+            font-size: 1em;
+          }
         }
         a:hover {
           text-decoration: none;
           background-color: #0000;
           border-radius: 2rem;
-          color: var(--theme-black);
-          text-shadow: 0 0 5px var(--theme-lpink);
-          transform: scale(1.04);
+          color: var(--theme-pink);
         }
         &.active {
+          & > a {
+            height: max-content;
+          }
           .dropdown-toggle::after {
             transform: rotate(180deg);
             left: 3px;
             bottom: -46px;
+          }
+        }
+
+        &:last-child {
+          ul.dropdown-menu {
+            left: auto;
+            right: -32px;
           }
         }
       }
@@ -1503,15 +1536,12 @@ header {
         border: 0;
         left: -7px;
         bottom: -3px;
-        transition: 0.2s;
+        transition: 0s;
       }
     }
 
     .menu-item-has-children  {
       position: relative;
-    }
-    .dropdown-menu {
-      
     }
 
     .extra-menu {
@@ -1556,6 +1586,7 @@ header {
               grid-template-columns: auto min-content;
               align-items: center;
               padding: 8px 0 2px 0;
+
               &:after {
                 display: block;
                 justify-self: end;
@@ -1726,6 +1757,7 @@ header {
           left: 0;
           box-shadow: 0 0 0 #000 !important;
           padding: 0px 2rem !important;
+          font-size: 1.5rem;
         }
       }
 
