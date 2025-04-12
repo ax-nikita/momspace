@@ -721,6 +721,8 @@ function custom_rewrite_rules() {
     add_rewrite_rule('articles/('.implode('|', $slugs).')/embed/?', 'index.php?category_name=$matches[1]&embed=true', 'top');
     add_rewrite_rule('articles/('.implode('|', $slugs).')/page/?([0-9]{1,})/?', 'index.php?category_name=$matches[1]&paged=$matches[2]', 'top');
     add_rewrite_rule('articles/('.implode('|', $slugs).')/?', 'index.php?category_name=$matches[1]', 'top');
+
+    add_rewrite_rule('articles/([^/]*)/?', 'index.php?name=$matches[1]', 'top');
 }
 
 add_action('init', 'custom_rewrite_rules');

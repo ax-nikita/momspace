@@ -44,6 +44,72 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".extra-menu").addEventListener("mouseleave", function() {
         document.getElementById('open-nav-menu').checked = false;
     });
+
+
+    new axModularFunction('article-content', (article) => {
+        let
+            list = article.axQS('.article-content__list-of-references');
+
+        if (list) {
+            let
+                ul = article.axQS('.article-box__list-of-references ul');
+
+            ul.replaceWith(list);
+        };
+
+        let
+            tags = article.axQS('.article-content__tags');
+
+        if (tags) {
+            let
+                tag_box = axQS('.article-box__tags > div');
+
+            tag_box.innerHTML = '';
+
+            tags.axQSA('span').forEach((tag) => {
+                tag.classList.add('simple-tag');
+                tag_box.append(tag);
+            })
+
+            tags.remove();
+        }
+
+        article.axQSA('.box.number.like,.social__likes').forEach(el => el.addEventListener('click', function () {
+            this.classList.add('active');
+        }), true)
+
+        let
+            table_of_contents = article.axQS('.article-box__table-of-contents');
+
+        if (table_of_contents) {
+            let
+                id_counter = 1;
+            article.axQSA('.article-content h3, .article-content h2').forEach(header => {
+                let
+                    id = 'h-' + id_counter++,
+                    header_link = new axNode('a'),
+                    header_h = new axNode('h4');
+
+                header_link.axClass('h2');
+                header_h.axVal(header.axVal());
+
+                header_link.axAttribute('href', '#' + id);
+                header.axAttribute('id', id);
+
+                header_link.append(header_h);
+
+                table_of_contents.append(header_link);
+            });
+        }
+    });
+
+    new axModularFunction('custom-label', (el) => {
+        el.addEventListener('click', () => {
+            el.offsetParent.offsetParent.axQSA(el.axAttribute('for')).forEach((input) => {
+                input.click();
+            })
+        })
+    });
 });
 
 axComponentLoader.appendFunction('swiper', (el) => {

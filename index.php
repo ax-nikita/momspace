@@ -389,60 +389,64 @@ get_header();
                         <input type="text" placeholder="Календарь береме...">
                     </label>
                 </div>
-                <div class="box radius-30 articles-colmn">
-                    <h3 class="green-heart">Новые статьи</h3>
-                    <div class="box article-card small">
-                        <div class="article-card__date">
-                            25 марта 2025
+
+                <div class="article-box__colmn right-colmn">
+                    <div class="box radius-30 articles-colmn">
+                        <h3 class="green-heart">Новые статьи</h3>
+                        <div class="box article-card small">
+                            <div class="article-card__date">
+                                25 марта 2025
+                            </div>
+                            <div class="social">
+                                <span class="social__likes">42</span>
+                                <span class="social__comments">11</span>
+                                <span class="social__views">256</span>
+                            </div>
+                            <div class="article-card__img">
+                                <img src="assets/images/article.jpg" alt="Пост 1">
+                                <div class="article-card__img__filter"></div>
+                                <span>#Развитие</span>
+                            </div>
+                            <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
+                            <a href="#" class="pink-arrow article-card__link">Читать далее</a>
                         </div>
-                        <div class="social">
-                            <span class="social__likes">42</span>
-                            <span class="social__comments">11</span>
-                            <span class="social__views">256</span>
+                        <div class="box article-card small">
+                            <div class="article-card__date">
+                                25 марта 2025
+                            </div>
+                            <div class="social">
+                                <span class="social__likes">42</span>
+                                <span class="social__comments">11</span>
+                                <span class="social__views">256</span>
+                            </div>
+                            <div class="article-card__img">
+                                <img src="assets/images/article.jpg" alt="Пост 1">
+                                <div class="article-card__img__filter"></div>
+                                <span>#Беременность</span>
+                            </div>
+                            <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
+                            <a href="#" class="pink-arrow article-card__link">Читать далее</a>
                         </div>
-                        <div class="article-card__img">
-                            <img src="assets/images/article.jpg" alt="Пост 1">
-                            <div class="article-card__img__filter"></div>
-                            <span>#Развитие</span>
+                        <div class="box article-card small">
+                            <div class="article-card__date">
+                                25 марта 2025
+                            </div>
+                            <div class="social">
+                                <span class="social__likes">42</span>
+                                <span class="social__comments">11</span>
+                                <span class="social__views">256</span>
+                            </div>
+                            <div class="article-card__img">
+                                <img src="assets/images/article.jpg" alt="Пост 1">
+                                <div class="article-card__img__filter"></div>
+                                <span>#Досуг</span>
+                            </div>
+                            <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
+                            <a href="#" class="pink-arrow article-card__link">Читать далее</a>
                         </div>
-                        <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
-                        <a href="#" class="pink-arrow article-card__link">Читать далее</a>
-                    </div>
-                    <div class="box article-card small">
-                        <div class="article-card__date">
-                            25 марта 2025
-                        </div>
-                        <div class="social">
-                            <span class="social__likes">42</span>
-                            <span class="social__comments">11</span>
-                            <span class="social__views">256</span>
-                        </div>
-                        <div class="article-card__img">
-                            <img src="assets/images/article.jpg" alt="Пост 1">
-                            <div class="article-card__img__filter"></div>
-                            <span>#Беременность</span>
-                        </div>
-                        <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
-                        <a href="#" class="pink-arrow article-card__link">Читать далее</a>
-                    </div>
-                    <div class="box article-card small">
-                        <div class="article-card__date">
-                            25 марта 2025
-                        </div>
-                        <div class="social">
-                            <span class="social__likes">42</span>
-                            <span class="social__comments">11</span>
-                            <span class="social__views">256</span>
-                        </div>
-                        <div class="article-card__img">
-                            <img src="assets/images/article.jpg" alt="Пост 1">
-                            <div class="article-card__img__filter"></div>
-                            <span>#Досуг</span>
-                        </div>
-                        <span class="article-card__title">Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати Идеи для гендер пати: как удивить гостей и что дарят на гендер-пати</span>
-                        <a href="#" class="pink-arrow article-card__link">Читать далее</a>
                     </div>
                 </div>
+
                 <div class="box article-card green">
                     <div class="article-card__date">
                         25 марта 2025
