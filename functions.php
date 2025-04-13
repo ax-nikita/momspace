@@ -509,6 +509,52 @@ function momspace_post_ajax_loading_cb()
 add_action( 'wp_ajax_nopriv_momspace_post_ajax_loading', 'momspace_post_ajax_loading_cb' );
 add_action( 'wp_ajax_momspace_post_ajax_loading', 'momspace_post_ajax_loading_cb' );
 
+// Загрузка поста
+
+function print_post_card ($class = '' ) {
+    ?>
+    <div class="box article-card <?php echo $class; ?>">
+        <div class="article-card__date">
+            <?php the_date(); ?>
+        </div>
+        <div class="social">
+            <span class="social__likes">42</span>
+            <span class="social__comments">11</span>
+            <span class="social__views">256</span>
+        </div>
+        <div class="article-card__img">
+            <?php the_post_thumbnail('full'); ?>
+            <div class="article-card__img__filter"></div>
+            <span>#<?php the_category(', #'); ?></span>
+        </div>
+        <span class="article-card__title"><?php the_title(); ?></span>
+        <a spa href="<?php the_permalink(); ?>" class="pink-arrow article-card__link">Читать далее</a>
+    </div>
+<?php
+}
+
+// Шаблоны де получения категорий поста
+
+function get_post_categories($post_id) {
+    // Получаем категории поста
+    $categories = get_the_category($post_id);
+
+    // Проверяем, есть ли категории
+    if (!empty($categories)) {
+        $category_info = []; // Массив для хранения имен и ссылок на категории
+        foreach ($categories as $category) {
+            // Получаем имя и ссылку на категорию
+            $category_info[] = [
+                'name' => $category->name, // Имя категории
+                'link' => get_category_link($category->term_id) // Ссылка на категорию
+            ];
+        }
+        return $category_info; // Возвращаем массив с информацией о категориях
+    } else {
+        return []; // Если категорий нет, возвращаем пустой массив
+    }
+}
+
 // Кастомные функции
 function transliterateen($input){
     $gost = array(

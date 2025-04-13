@@ -11,8 +11,13 @@
  
 $momspace_preloader = momspace_get_option('preloader_enable', true);
  
- 
+if(isset($_GET['domLoader'])) :
+    echo '<main>';
+else :
 ?>
+
+
+
 <!DOCTYPE html>
   <html <?php language_attributes(); ?>> 
     <head>
@@ -52,5 +57,6 @@ $momspace_preloader = momspace_get_option('preloader_enable', true);
 
         get_template_part( 'template-parts/header' );
 
+        endif;
         ?>
 		

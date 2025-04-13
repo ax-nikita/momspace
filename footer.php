@@ -8,6 +8,10 @@
  *
  * @package momspace
  */
+
+if(isset($_GET['domLoader'])) :
+    echo '</main>';
+else :
  
 $scroll_top = momspace_get_option('back_top_enable', true);
 $footer_nav = momspace_get_option('footer_nav');
@@ -184,3 +188,6 @@ $footer_copyright_text_allowed_tags = array(
 </body>
 </html>
 
+
+<?php
+endif;

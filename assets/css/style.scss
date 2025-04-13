@@ -36,6 +36,15 @@ html {
   }
 }
 
+a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bolder !important;
+  }
+}
+
 main {
   position: relative;
 }
@@ -74,15 +83,12 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  html {
-    font-size: 12px;
-  }
-}
-
 @media (max-width: 576px) {
   html {
     font-size: 10px;
+  }
+  body {
+    zoom: 100%;
   }
 }
 
@@ -1150,6 +1156,12 @@ input.tag-more {
     line-height: 1.8rem;
   }
 
+  img {
+    &.emoji {
+      border: none;
+    }
+  }
+
   ul,ol {
     padding-top: 0.45rem;
     margin-block-start: 0;
@@ -1244,10 +1256,12 @@ input.tag-more {
   h2 {
     font-size: 2rem;
     font-weight: 600;
+    max-width: 100%;
   }
   h3 {
     color: var(--theme-black);
     font-weight: 600;
+    max-width: 100%;
   }
 
   &__list-box {
@@ -1333,6 +1347,10 @@ input.tag-more {
       "comments-box colmn";
   }
 
+  .important {
+    color: var(--theme-pink);
+  }
+
   h1 {
     display: block;
     grid-area: h1;
@@ -1350,7 +1368,7 @@ input.tag-more {
     display: grid;
     grid-auto-flow: column;
     gap: 2.9rem;
-    grid-template-columns: min-content min-content min-content;
+    grid-auto-columns: min-content;
     padding-bottom: 2.45rem;
     .social {
       gap: 1.44rem;
@@ -1528,7 +1546,12 @@ input.tag-more {
 
 @media (max-width: 1340px) {
   .article-box {
-
+    h1 {
+      max-width: 100%;
+    }
+    h2 {
+      max-width: 100%;
+    }
     &.type-1 {
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -1544,6 +1567,37 @@ input.tag-more {
         display: none;
       }
     }
+
+    &__social {
+      padding-bottom: 0rem;
+      gap: 1rem;
+      grid-template-areas: 'rubric1 rubric2 rubric3 rubric4'
+        'social social share share';
+      grid-template-columns: repeat(4, min-content);
+      grid-auto-flow: dense;
+      .social {
+        grid-area: social;
+      }
+
+      .article-box__share {
+        grid-area: share;
+      }
+
+      .rubric {
+        grid-area: rubric1;
+        & + .rubric {
+          grid-area: rubric2;
+          & + .rubric {
+            grid-area: rubric3;
+            & + .rubric {
+              grid-area: rubric4;
+            }
+          }
+        }
+      }
+    }
+
+
   }
 }
 
