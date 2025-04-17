@@ -15,7 +15,10 @@
 /** @noinspection PhpStrFunctionsInspection */
 /** @noinspection AccessModifierPresentedInspection */
 
-namespace Shuchkin;
+namespace Shuchkin\libs;
+use function Shuchkin\mb_strlen;
+use function Shuchkin\mb_substr;
+
 /**
  * Class SimpleXLSXGen
  * Export data to MS Excel. PHP XLSX generator

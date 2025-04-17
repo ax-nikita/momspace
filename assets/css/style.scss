@@ -41,12 +41,14 @@ a {
   &:hover {
     color: inherit;
     text-decoration: none;
-    font-weight: bolder !important;
   }
 }
 
 main {
   position: relative;
+  &[awaiting] {
+    height: 100vh;
+  }
 }
 
 body {
@@ -918,6 +920,7 @@ a.pink-arrow {
 
 input.tag-more {
   display: none;
+
   &:not(:checked) {
     & ~ .tag:not(.more):nth-child(n + 13) {
       display: none;
@@ -937,9 +940,20 @@ input.tag-more {
   }
 }
 
+@media (min-width: 992px) {
+  input.tag-more {
+    & ~ .tag.more:nth-child(-n + 13) {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 992px) {
   input.tag-more {
     display: none;
+    & ~ .tag.more:nth-child(-n + 6) {
+      display: none;
+    }
     &:not(:checked) {
       & ~ .tag:not(.more):nth-child(n + 6) {
         display: none;
@@ -1156,6 +1170,11 @@ input.tag-more {
     line-height: 1.8rem;
   }
 
+  .article-content > &__tags,
+  .article-content > &__list-of-references {
+    display: none !important;
+  }
+
   img {
     &.emoji {
       border: none;
@@ -1329,6 +1348,19 @@ input.tag-more {
   }
 }
 
+.simple-boxes-areas {
+  .simple-box {
+    padding: 0;
+    &__section {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &__link-btn {
+      display: none;
+    }
+  }
+}
+
 .article-box {
   &.type-1 {
     display: grid;
@@ -1345,6 +1377,23 @@ input.tag-more {
       "tags colmn"
       "list-of-references colmn"
       "comments-box colmn";
+
+    &.simple-boxes-areas {
+      grid-template-areas:
+      "h1 h1"
+      "social social"
+      "main-img colmn"
+      "content colmn"
+      "simple-box-wrapper colmn"
+      "reaction-like colmn"
+      "tags colmn"
+      "list-of-references colmn"
+      "comments-box colmn";
+    }
+  }
+
+  &__simple-box-wrapper {
+    grid-area: simple-box-wrapper;
   }
 
   .important {
@@ -1372,6 +1421,11 @@ input.tag-more {
     padding-bottom: 2.45rem;
     .social {
       gap: 1.44rem;
+    }
+    .date {
+      align-self: center;
+      justify-self: center;
+      color: var(--theme-lgray);
     }
   }
 
@@ -1453,7 +1507,7 @@ input.tag-more {
     padding-top: 0.25rem;
   }
 
-  &__colmn {
+  .sidebar {
     grid-area: colmn;
   }
 
@@ -1563,7 +1617,7 @@ input.tag-more {
       "tags"
       "list-of-references"
       "comments-box";
-      .right-colmn {
+      .sidebar {
         display: none;
       }
     }
@@ -1572,11 +1626,15 @@ input.tag-more {
       padding-bottom: 0rem;
       gap: 1rem;
       grid-template-areas: 'rubric1 rubric2 rubric3 rubric4'
-        'social social share share';
+        'social social date share';
       grid-template-columns: repeat(4, min-content);
       grid-auto-flow: dense;
       .social {
         grid-area: social;
+      }
+
+      .date {
+        grid-area: date;
       }
 
       .article-box__share {
@@ -1596,12 +1654,10 @@ input.tag-more {
         }
       }
     }
-
-
   }
 }
 
-.right-colmn {
+.sidebar {
   display: grid;
   grid-auto-rows: min-content;
   gap: 2rem;
@@ -1698,7 +1754,7 @@ input.tag-more {
       "a a colm"
       "search search colm";
 
-    .right-colmn {
+    .sidebar {
       grid-auto-rows: 1fr;
     }
   }
@@ -1711,8 +1767,7 @@ input.tag-more {
 
     grid-template-areas:
       "al al colm"
-      "a a colm"
-      "more more more";
+      "a a colm";
 
     .article-card {
       border: none;
@@ -1725,7 +1780,7 @@ input.tag-more {
     gap: 1.5rem;
   }
 
-  .right-colmn {
+  .sidebar {
     grid-area: colm;
   }
 
@@ -1750,18 +1805,6 @@ input.tag-more {
     grid-template-columns: max-content auto;
     gap: 10px;
   }
-
-  &__more {
-    grid-area: more;
-    width: 100%;
-    .btn {
-      margin-top: 1rem;
-      background: var(--theme-white);
-      color: var(--theme-pink);
-      border: 1px solid var(--theme-pink);
-      font-size: 1.5rem;
-    }
-  }
 }
 
 @media (max-width: 1340px) {
@@ -1780,8 +1823,7 @@ input.tag-more {
       grid-template-columns: 50% 50%;
       grid-template-areas:
       "al al"
-      "a a"
-      "more more";
+      "a a";
       .articles-colmn {
         display: none;
       }
@@ -1804,25 +1846,26 @@ input.tag-more {
       "a"
       "a"
       "search";
-      .article-card:nth-child(2n) {
+      .article-card:nth-child(n + 5) {
         display: none;
       }
     }
+
+    .article-box__colmn {
+      display: none;
+    }
+
     &.type-2 {
       grid-template-columns: 100%;
       grid-template-areas:
       "al"
       "a"
-      "more";
     }
     &__auto-list {
       & > .article-card {
         max-width: 100%;
         width: 100%;
       }
-    }
-    &__more .btn {
-      font-size: 2.5rem;
     }
     &.type-3 {
       grid-template-columns: 1fr;
@@ -1852,6 +1895,8 @@ input.tag-more {
 }
 
 .theme-pagination-style {
+  display: grid;
+  gap: 1rem;
   ul {
     display: flex;
     -webkit-box-orient: horizontal;
@@ -1866,6 +1911,20 @@ input.tag-more {
     margin: 0 auto;
     max-width: min-content;
     padding-inline-start: 0;
+  }
+  &__more {
+    width: 100%;
+    .btn {
+      margin-top: 1rem;
+      background: var(--theme-white);
+      color: var(--theme-pink);
+      border: 1px solid var(--theme-pink);
+      font-size: 1.5rem;
+    }
+  }
+  .current {
+    pointer-events: none;
+    background: var(--theme-lpink);
   }
 }
 
@@ -1935,13 +1994,15 @@ input.tag-more {
     width: 100%;
     height: 261px;
     grid-area: img;
-    span {
+    &__rubric {
       position: absolute;
       bottom: 17px;
       left: 24px;
-      color: var(--theme-white);
-      font-weight: 400;
-      cursor: pointer;
+      span {
+        color: var(--theme-white);
+        font-weight: 400;
+        cursor: pointer;
+      }
     }
     &__filter {
       top: 0;
@@ -2091,6 +2152,7 @@ input.tag-more {
         padding: 0.25rem 1rem;
         bottom: 1rem;
         left: 1rem;
+        margin-right: 1rem;
       }
     }
   }
@@ -2483,9 +2545,6 @@ header {
             }
           }
         }
-        &.active > ul.dropdown-menu {
-          display: block !important;
-        }
 
         ul.dropdown-menu {
           display: none;
@@ -2505,9 +2564,9 @@ header {
           text-decoration: none;
           background-color: #0000;
           border-radius: 2rem;
-          color: var(--theme-pink);
         }
-        &.active {
+        &.active,
+        &:hover {
           & > a {
             height: max-content;
           }
@@ -2515,6 +2574,10 @@ header {
             transform: rotate(180deg);
             left: 3px;
             bottom: -46px;
+          }
+
+          & > ul.dropdown-menu {
+            display: block !important;
           }
         }
 

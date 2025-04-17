@@ -1,6 +1,8 @@
 <?php
 /*
+ *
 Template Name: Поиск имен
+
 */
 
 $letters = [];
@@ -104,7 +106,7 @@ if (!empty($first_letter)) {
 $query = new WP_Query($args);
 
 if (DOWNLOAD_XLS_URLS) {
-    require_once("SimpleXLSXGen.php");
+    require_once(MOMSPACE_THEME_LIBS . "/SimpleXLSXGen.php");
 
     $urls = [
         ['url', 'baby_name', 'gender', 'origin', 'first_letter', 'meaning', 'title', 'content'],
@@ -227,7 +229,7 @@ if (DOWNLOAD_XLS_URLS) {
         }
     }
 
-    $xlsx = Shuchkin\SimpleXLSXGen::fromArray($urls);
+    $xlsx = \Shuchkin\libs\SimpleXLSXGen::fromArray($urls);
     $xlsx->downloadAs('urls.xlsx');
     exit();
 }

@@ -1,13 +1,18 @@
 <?php
-$current_category = get_queried_object();
+
+$posts_per_page = get_query_var('posts_per_page') ?? round((int)get_query_var('this_page_posts') / 2);
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$offset = ($paged - 1) * $posts_per_page;
 
 $args = array(
     'post_type' => 'post',
-    'posts_per_page' => 5,
+    'posts_per_page' => $posts_per_page,
+    'offset' => $offset,
     'orderby' => 'date',
     'order' => 'DESC',
-    'cat' => $current_category->term_id,
+    'category' => get_query_var('category_id') ?? -1,
 );
+
 $new_posts = new WP_Query($args);
 
 if ($new_posts->have_posts()) {
@@ -25,4 +30,4 @@ if ($new_posts->have_posts()) {
     </div>
     <?php
 }
-
+?>

@@ -23,6 +23,16 @@ else :
     <head>
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script>
+            let
+                oldpage = '';
+            window.addEventListener('popstate', function(event) {
+                // Перезагружаем страницу при переходе назад
+                if(history.state != null) {
+                    window.location.reload();
+                }
+            });
+        </script>
 		<?php wp_head(); ?>
     </head>
 	

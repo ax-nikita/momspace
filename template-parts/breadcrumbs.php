@@ -37,7 +37,7 @@ if (is_single()) {
 } elseif (is_home()) {
     echo 'Статьи';
 } elseif (is_archive()) {
-    echo esc_html(get_the_archive_title());
+    echo get_the_archive_title();
 }
 
 echo '</nav>';
